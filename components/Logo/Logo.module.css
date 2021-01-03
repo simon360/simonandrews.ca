@@ -1,0 +1,7 @@
+.wrapper {
+  color: var(--color-logo-outline);
+}
+
+.wrapper.isTextMatched {
+  color: inherit;
+}
