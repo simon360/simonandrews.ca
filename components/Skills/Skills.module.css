@@ -1,4 +1,4 @@
-.wrapper {
+.wrapper > ul {
   justify-content: center;
   display: flex;
   flex-wrap: wrap;
@@ -7,4 +7,17 @@
   margin: 0;
   padding: 0;
   text-align: center;
+}
+
+.wrapper > ul > li {
+  display: inline;
+  margin-right: var(--space-md);
+}
+
+.wrapper > ul > li:last-child {
+  margin-right: none;
+}
+
+.wrapper > ul > li > strong {
+  font-weight: var(--font-weight-bold);
 }
