@@ -20,6 +20,7 @@ const site = {
   author: `@simon360`,
   baseUrl: getBaseUrl(),
   image: "/images/social-image.png",
+  favicon: "/favicon.png",
 
   siteLinks: [{ title: "CV", url: "/" }],
   socialLinks: [

@@ -17,6 +17,7 @@ export default function Seo({ meta: passedMeta }) {
 
       <meta name="description" content={meta.description} />
 
+      <link rel="icon" href={meta.favicon} />
       <meta property="og:title" content={meta.title} />
       <meta property="og:description" content={meta.description} />
       <meta property="og:type" content="website" />
