@@ -1,0 +1,20 @@
+/**
+ * 1. Icon should be sized relative to the text surrounding it, hence em.
+ * 2. Similarly, the space between an icon and the text is relative to text size
+ */
+
+.icon {
+  --dimensions: 1.5em; /* 1 */
+  --space: 0.25em; /* 2 */
+
+  display: inline-block;
+  height: var(--dimensions);
+  margin-right: var(--space);
+  vertical-align: middle;
+  width: var(--dimensions);
+}
+
+.iconAlignedEnd {
+  margin-right: 0;
+  margin-left: var(--space);
+}
