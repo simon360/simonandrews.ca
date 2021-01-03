@@ -1,8 +1,24 @@
+function getBaseUrl() {
+  if (process.env.VERCEL_URL) {
+    // Vercel doesn't provide a protocol on its URLs. (So, technically, this
+    // isn't a URL, but I'll put pedantry aside.)
+    return `//${process.env.VERCEL_URL}`
+  }
+
+  if (process.env.BASE_URL) {
+    // Could be used in non-Vercel environments
+    return process.env.BASE_URL
+  }
+
+  // Fall back to the default
+  return "https://www.simonandrews.ca"
+}
+
 const site = {
   title: `Simon Andrews`,
   description: `Engineering Manager/Product Engineer based in London, UK`,
   author: `@simon360`,
-  baseUrl: process.env.BASE_URL || "https://www.simonandrews.ca",
+  baseUrl: getBaseUrl(),
   image: "/images/social-image.png",
 
   siteLinks: [{ title: "CV", url: "/" }],
