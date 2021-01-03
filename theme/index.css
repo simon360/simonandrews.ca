@@ -1,4 +1,5 @@
 @import "./lib/inter.css";
+@import "./lib/normalize.css";
 @import "./base.css";
 @import "./color.css";
 @import "./space.css";
