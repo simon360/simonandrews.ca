@@ -1,0 +1,28 @@
+.brandPrimary {
+  background: linear-gradient(
+    to bottom right,
+    var(--color-brand-primary-lighter) 0%,
+    var(--color-brand-primary-darker) 100%
+  );
+}
+
+.brandSecondary {
+  background: linear-gradient(
+    to bottom right,
+    var(--color-brand-secondary-lightest) 0%,
+    var(--color-brand-secondary) 100%
+  );
+}
+
+.light {
+  background-color: var(--color-base-white);
+}
+
+.muted {
+  background-color: var(--color-neutral-lightest);
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+}
