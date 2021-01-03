@@ -1,0 +1,37 @@
+:root {
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+
+  --font-size-scale-multiplier: 1.25;
+  --font-size-base: 1rem;
+
+  --font-size-base-down-1: calc(
+    var(--font-size-base) / var(--font-size-scale-multiplier)
+  );
+  --font-size-base-down-2: calc(
+    var(--font-size-base-down-1) / var(--font-size-scale-multiplier)
+  );
+  /* Going further than 2 steps down gets into itty-bitty-terribly-unreadable territory. */
+
+  --font-size-base-up-1: calc(
+    var(--font-size-base) * var(--font-size-scale-multiplier)
+  );
+  --font-size-base-up-2: calc(
+    var(--font-size-base-up-1) * var(--font-size-scale-multiplier)
+  );
+  --font-size-base-up-3: calc(
+    var(--font-size-base-up-2) * var(--font-size-scale-multiplier)
+  );
+  --font-size-base-up-4: calc(
+    var(--font-size-base-up-3) * var(--font-size-scale-multiplier)
+  );
+
+  --font-size-page-title: var(--font-size-base-up-3);
+
+  --font-size-h1: var(--font-size-base-up-4);
+  --font-size-h2: var(--font-size-base-up-3);
+  --font-size-h3: var(--font-size-base-up-2);
+  --font-size-h4: var(--font-size-base);
+
+  --font-size-lead: var(--font-size-base-up-1);
+}

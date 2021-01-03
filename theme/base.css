@@ -1,0 +1,42 @@
+/**
+ * Keep this file minimal. Almost all styles should be component-scoped, to
+ * preserve semantic elements wherever possible.
+
+/**
+ * Set up better box-sizing, so that elements are less likely to create annoying
+ * off-by-one overflows, etc.
+ */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/**
+ * Default font family
+ */
+body {
+  color: var(--color-text);
+  font-family: "Inter", sans-serif;
+}
+
+/**
+ * Basic link styles
+ */
+a:link {
+  color: var(--color-link);
+}
+
+a:visited {
+  color: var(--color-link-visited);
+}
+
+a:hover,
+a:focus,
+a:active {
+  color: var(--color-link-active);
+}

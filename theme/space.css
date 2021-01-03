@@ -1,0 +1,10 @@
+:root {
+  --space-xs: calc(1rem / 4); /* 4px */
+  --space-sm: calc(1rem / 2); /* 8px */
+  --space-md: 1rem; /* 16px */
+  --space-lg: calc(1rem * 1.5); /* 24px */
+  --space-xl: calc(1rem * 2); /* 32px */
+  --space-xxl: calc(1rem * 3); /* 48px */
+  --space-xxxl: calc(1rem * 4); /* 64px */
+  --space-mega: calc(1rem * 6); /* 96px */
+}

@@ -1,0 +1,76 @@
+:root {
+  /**
+   * Base colors. Do not use directly.
+   */
+  --color-base-black: rgb(0, 0, 0);
+  --color-base-white: rgb(255, 255, 255);
+
+  --color-base-primary-lightest: #8b64ba;
+  --color-base-primary-lighter: #6c40a1;
+  --color-base-primary: #592695;
+  --color-base-primary-darker: #431579;
+  --color-base-primary-darkest: #2f085f;
+
+  --color-base-secondary-lightest: #ffd27f;
+  --color-base-secondary-lighter: #eeb752;
+  --color-base-secondary: #dc9d2a;
+  --color-base-secondary-darker: #b27a12;
+  --color-base-secondary-darkest: #8c5b00;
+
+  --color-base-green-lightest: #bbed76;
+  --color-base-green-lighter: #9dda4b;
+  --color-base-green: #85c926;
+  --color-base-green-darker: #66a311;
+  --color-base-green-darkest: #4a8000;
+
+  --color-base-blue-lightest: #5071d2;
+  --color-base-blue-lighter: #3154bf;
+  --color-base-blue: #264295;
+  --color-base-blue-darker: #1c306e;
+  --color-base-blue-darkest: #121e45;
+
+  /**
+   * Neutral colors. Use in place of greys.
+   */
+  --color-neutral-lightest: #f7f4fb;
+  --color-neutral-lighter: #c2b3d6;
+  --color-neutral: #867b93;
+  --color-neutral-darker: #312442;
+  --color-neutral-darkest: #17042f;
+
+  /**
+   * Descriptive colors. Add as necessary, derive from bases.
+   */
+  --color-text: var(--color-neutral-darkest);
+
+  --color-link: var(--color-base-primary);
+  --color-link-visited: var(--color-base-primary-lighter);
+  --color-link-active: var(--color-base-primary-darker);
+
+  --color-brand-primary-lightest: var(--color-base-primary-lightest);
+  --color-brand-primary-lighter: var(--color-base-primary-lighter);
+  --color-brand-primary: var(--color-base-primary);
+  --color-brand-primary-darker: var(--color-base-primary-darker);
+  --color-brand-primary-darkest: var(--color-brand-primary-darkest);
+
+  --color-brand-secondary-lightest: var(--color-base-secondary-lightest);
+  --color-brand-secondary-lighter: var(--color-base-secondary-lighter);
+  --color-brand-secondary: var(--color-base-secondary);
+  --color-brand-secondary-darker: var(--color-base-secondary-darker);
+  --color-brand-secondary-darkest: var(--color-brand-secondary-darkest);
+
+  --color-logo-outline: var(--color-brand-primary);
+}
+
+.DarkSurface {
+  /**
+   * Colors used when on top of a dark background.
+   */
+  --color-text: var(--color-base-white);
+
+  --color-link: var(--color-base-white);
+  --color-link-visited: var(--color-base-white);
+  --color-link-active: var(--color-base-white);
+
+  --color-logo-outline: var(--color-base-white);
+}
