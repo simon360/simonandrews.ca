@@ -44,7 +44,7 @@
   object-fit: contain;
   object-position: right top;
   max-width: 12rem;
-  height: 4rem;
+  max-height: 4rem;
 }
 
 .position {

@@ -32,7 +32,7 @@ export default function Association({
       style={{ borderColor: brandColor }}
     >
       <div className={title}>
-        <Heading element="h3" type="md">
+        <Heading element="h3" type="md" spaceAfter={null}>
           {href ? (
             <a href={href} rel="noopener noreferrer">
               {company}
