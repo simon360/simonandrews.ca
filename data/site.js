@@ -3,6 +3,7 @@ const site = {
   description: `Engineering Manager/Product Engineer based in London, UK`,
   author: `@simon360`,
   baseUrl: process.env.BASE_URL || "https://www.simonandrews.ca",
+  image: "/images/social-image.png",
 
   siteLinks: [{ title: "CV", url: "/" }],
   socialLinks: [

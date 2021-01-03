@@ -9,8 +9,8 @@ import Heading from "@/components/Heading"
 import Hero from "@/components/Hero"
 import Paragraph from "@/components/Paragraph"
 import Section from "@/components/Section"
+import Seo from "@/components/Seo"
 
-import home from "@/data/home"
 import site from "@/data/site"
 
 import { content, wrapper } from "./Layout.module.css"
@@ -26,6 +26,7 @@ const components = {
 const Layout = ({ children, heroContent, meta }) => {
   return (
     <MDXProvider components={components}>
+      <Seo meta={meta} />
       <div className={wrapper}>
         {/* Add a target for the Return To Top link */}
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid, jsx-a11y/anchor-is-valid, jsx-a11y/anchor-has-content */}
