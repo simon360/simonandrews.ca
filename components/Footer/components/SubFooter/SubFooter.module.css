@@ -1,0 +1,33 @@
+.blurbColumn {
+  flex: 1;
+  margin: var(--space-md) 0;
+  min-width: 20rem;
+}
+
+.linkColumn {
+  margin: var(--space-md) 0;
+  min-width: 20rem;
+  padding-right: var(--space-md);
+  width: 33%;
+}
+
+.links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  margin-bottom: var(--space-xs);
+}
+
+.link:last-child {
+  margin-bottom: 0;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  line-height: 1.5;
+  padding: var(--space-md) 0;
+}
