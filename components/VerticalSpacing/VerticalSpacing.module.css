@@ -1,0 +1,31 @@
+.xs {
+  margin-bottom: var(--space-xs);
+}
+
+.sm {
+  margin-bottom: var(--space-sm);
+}
+
+.md {
+  margin-bottom: var(--space-md);
+}
+
+.lg {
+  margin-bottom: var(--space-lg);
+}
+
+.xl {
+  margin-bottom: var(--space-xl);
+}
+
+.xxl {
+  margin-bottom: var(--space-xxl);
+}
+
+.xxxl {
+  margin-bottom: var(--space-xxxl);
+}
+
+.mega {
+  margin-bottom: var(--space-mega);
+}
