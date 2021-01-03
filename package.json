@@ -6,7 +6,7 @@
     "dev": "next dev",
     "format": "prettier --write \"**/*.{css,js,jsx,json,md,mdx}\"",
     "lint": "eslint .",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start"
   },
   "dependencies": {
