@@ -1,0 +1,169 @@
+{
+  "heroImage": "/images/hero-london-2.jpg",
+  "leadText": [
+    "I’m an engineering manager, and a software developer, with a focus on the Web.",
+    "I grew up in St. Johnʼs, Newfoundland & Labrador, a small city on the east coast of Canada. After finishing high school, I moved west to Calgary, Alberta, where I attended university. I briefly lived and worked in Edmonton, Alberta, before I moved to London, UK, where I remain.",
+    "I’m passionate about good software, and the people who make it. I’m grateful that I get to work on one of my hobbies as a career - Iʼve been making websites for as long as I can remember. I enjoy sharing knowledge, almost as much as I enjoy gaining it. Curiosity is a driving value for me, and I think itʼs at the core of good building good software. I think itʼs important to empower developers, with patience and empathy, to make a product that scales, that can be iterated on efficiently, and that can improve the lives of all its users.",
+    "Iʼm a person with low vision, and accessibility is at the core of everything I build. The Web is uniquely placed to empower those who face difficulties in their day to day life, and I believe that - when well considered - it can be a great, egalitarian force for good."
+  ],
+  "education": [
+    {
+      "company": "University of Calgary",
+      "brandColor": "#E42124",
+      "href": "https://ucalgary.ca",
+      "isFocus": true,
+      "logo": {
+        "type": "svg",
+        "src": "logo-university-of-calgary.svg"
+      },
+      "positions": [
+        {
+          "title": "Bachelor of Science - Computer Science 2015",
+          "time": "2011 - 2015"
+        }
+      ]
+    }
+  ],
+  "work": [
+    {
+      "company": "HubbleHQ",
+      "brandColor": "#FF377A",
+      "href": "https://hubblehq.com",
+      "isFocus": true,
+      "logo": {
+        "type": "svg",
+        "src": "logo-hubblehq.svg"
+      },
+      "positions": [
+        {
+          "title": "Engineering Manager",
+          "time": "January 2020 - Current"
+        },
+        {
+          "title": "Lead Product Engineer",
+          "time": "July 2019 - January 2020"
+        },
+        {
+          "title": "Product Engineer",
+          "time": "March 2019 - July 2019"
+        },
+        {
+          "title": "Product Engineer (contractor)",
+          "time": "November 2018 - March 2019"
+        }
+      ]
+    },
+    {
+      "company": "Thomson Reuters",
+      "brandColor": "#E6772B",
+      "href": "https://thomsonreuters.com",
+      "isFocus": true,
+      "logo": {
+        "type": "svg",
+        "src": "logo-thomson-reuters.svg"
+      },
+      "positions": [
+        {
+          "title": "Web Developer (contractor)",
+          "time": "March 2016 - October 2018"
+        }
+      ]
+    },
+    {
+      "company": "Effortless Admin",
+      "brandColor": "#1B9AD6",
+      "href": "https://effortlessadmin.com",
+      "logo": {
+        "type": "svg",
+        "src": "logo-effortless-admin.svg"
+      },
+      "positions": [
+        {
+          "title": "Web Developer",
+          "time": "May 2015 - March 2016"
+        }
+      ]
+    },
+    {
+      "company": "Olympia Trust Company",
+      "brandColor": "#AC8A2E",
+      "href": "https://olympiatrust.com",
+      "logo": {
+        "type": "img",
+        "src": "logo-olympia-trust-company.png"
+      },
+      "positions": [
+        {
+          "title": ".NET Developer (intern)",
+          "time": "Summers 2013 and 2014"
+        }
+      ]
+    },
+    {
+      "company": "Celtx",
+      "brandColor": "#000000",
+      "href": "https://www.celtx.com",
+      "logo": {
+        "type": "svg",
+        "src": "logo-celtx.svg"
+      },
+      "positions": [
+        {
+          "title": "Developer (intern)",
+          "time": "Summers 2008, 2010, 2011 and 2012"
+        }
+      ]
+    },
+    {
+      "company": "Neowin.net",
+      "brandColor": "#1E5078",
+      "href": "https://neowin.net",
+      "logo": {
+        "type": "svg",
+        "src": "logo-neowin.svg"
+      },
+      "positions": [
+        {
+          "title": "Developer (part time)",
+          "time": "December 2007 - January 2011"
+        }
+      ]
+    }
+  ],
+  "skills": [
+    { "name": "Software Development", "isFocus": true },
+    { "name": "Documentation" },
+    { "name": "Agile" },
+    { "name": "Testing (unit, integration, e2e)" },
+    { "name": "Components" },
+    { "name": "Design systems" },
+    { "name": "Web", "isFocus": true },
+    { "name": "HTML5" },
+    { "name": "CSS" },
+    { "name": "BEM" },
+    { "name": "A11y" },
+    { "name": "JavaScript", "isFocus": true },
+    { "name": "React" },
+    { "name": "Next.js" },
+    { "name": "Jest" },
+    { "name": "Build tools", "isFocus": true },
+    { "name": "Webpack" },
+    { "name": "Babel" },
+    { "name": "PostCSS" },
+    { "name": "Server-side rendering" },
+    { "name": "Back-end", "isFocus": true },
+    { "name": "Node.js" },
+    { "name": ".NET (C#)" },
+    { "name": "Python" },
+    { "name": "PHP" },
+    { "name": "Java" },
+    { "name": "SQL (various)" },
+    { "name": "ORM" },
+    { "name": "Management", "isFocus": true },
+    { "name": "One-to-ones" },
+    { "name": "Career development" },
+    { "name": "Hiring" },
+    { "name": "Project management" },
+    { "name": "Relationship building" }
+  ]
+}
