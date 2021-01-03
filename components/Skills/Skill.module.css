@@ -1,0 +1,8 @@
+.wrapper {
+  display: inline;
+  margin-right: var(--space-md);
+}
+
+.wrapper.isFocus {
+  font-weight: var(--font-weight-bold);
+}

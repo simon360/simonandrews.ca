@@ -1,0 +1,10 @@
+.wrapper {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: var(--font-size-base-up-1);
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
