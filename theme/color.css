@@ -73,4 +73,6 @@
   --color-link-active: var(--color-base-white);
 
   --color-logo-outline: var(--color-base-white);
+
+  color: var(--color-text);
 }
