@@ -1,4 +1,4 @@
-export default {
+const site = {
   title: `Simon Andrews`,
   description: `Engineering Manager/Product Engineer based in London, UK`,
   author: `@simon360`,
@@ -28,3 +28,5 @@ export default {
     },
   ],
 }
+
+export default site

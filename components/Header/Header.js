@@ -1,10 +1,10 @@
-import Link from "next/link"
 import PropTypes from "prop-types"
 import React from "react"
 import { Linkedin, GitHub, Instagram, Twitter, User } from "react-feather"
 
-import Logo from "../Logo"
-import Section from "../Section"
+import Link from "@/components/Link"
+import Logo from "@/components/Logo"
+import Section from "@/components/Section"
 
 import {
   title,
@@ -49,11 +49,9 @@ export default function Header({ siteLinks, siteTitle = ``, socialLinks }) {
     <header>
       <Section verticalPadding="md">
         <div className={wrapper}>
-          <Link href="/">
-            <a className={title}>
-              <Logo isTextMatched className={titleLogo} />
-              {siteTitle}
-            </a>
+          <Link className={title} href="/">
+            <Logo isTextMatched className={titleLogo} />
+            {siteTitle}
           </Link>
 
           <nav>
@@ -61,9 +59,7 @@ export default function Header({ siteLinks, siteTitle = ``, socialLinks }) {
               <ul className={navList}>
                 {siteLinks.map(({ title, url }) => (
                   <li key={url} className={navLink}>
-                    <Link href={url}>
-                      <a>{title}</a>
-                    </Link>
+                    <Link href={url}>{title}</Link>
                   </li>
                 ))}
               </ul>

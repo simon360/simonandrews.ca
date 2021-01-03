@@ -1,8 +1,8 @@
-import Link from "next/link"
 import React from "react"
 import { GitHub, Instagram, Linkedin, Twitter, User } from "react-feather"
 
 import Heading from "@/components/Heading"
+import Link from "@/components/Link"
 import Section from "@/components/Section"
 import Surface from "@/components/Surface"
 import TextWithIcon from "@/components/TextWithIcon"
@@ -57,9 +57,7 @@ export default function SubFooter({ contactInfo, siteLinks, socialLinks }) {
               <ul className={links}>
                 {siteLinks.map(({ title, url }) => (
                   <li className={link} key={url}>
-                    <Link href={url}>
-                      <a>{title}</a>
-                    </Link>
+                    <Link href={url}>{title}</Link>
                   </li>
                 ))}
               </ul>
