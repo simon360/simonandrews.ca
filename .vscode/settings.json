@@ -1,0 +1,5 @@
+{
+  "editor.formatOnSave": true,
+  "prettier.documentSelectors": ["**/*.{css,js,jsx,json,md,mdx}"],
+  "json.format.enable": false
+}
