@@ -1,0 +1,27 @@
+.wrapper {
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  min-height: 30rem;
+  position: relative;
+}
+
+.imageWrapper {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.contentWrapper {
+  position: relative;
+}
+
+.alignMiddle {
+  justify-content: center;
+}
+
+.alignBottom {
+  justify-content: flex-end;
+}
