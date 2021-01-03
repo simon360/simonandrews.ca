@@ -1,0 +1,68 @@
+.wrapper {
+  align-items: flex-start;
+  background-color: white;
+  border-top: 1px solid;
+  display: grid;
+  gap: var(--space-md);
+  grid-template-areas:
+    "title"
+    "logo"
+    "positions";
+  list-style: none;
+  padding: var(--space-md) 0 var(--space-md);
+}
+
+@media (min-width: 48rem) {
+  .wrapper.isFocus {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 64rem) {
+  .wrapper {
+    grid-template-areas:
+      "title title title logo"
+      "positions positions positions logo";
+  }
+}
+
+.logoWrapper {
+  align-self: center;
+  grid-area: logo;
+  display: flex;
+  justify-content: center;
+  padding: var(--space-sm);
+}
+
+@media (min-width: 64rem) {
+  .logoWrapper {
+    justify-content: flex-end;
+  }
+}
+
+.logo {
+  object-fit: contain;
+  object-position: right top;
+  max-width: 12rem;
+  height: 4rem;
+}
+
+.position {
+  flex: 1 0 20rem;
+  line-height: 1.5;
+  list-style: none;
+  margin-bottom: var(--space-sm);
+  padding-right: var(--space-md);
+}
+
+.positionsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  grid-area: positions;
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  grid-area: title;
+}
