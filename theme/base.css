@@ -19,9 +19,15 @@ html {
 /**
  * Default font family
  */
-body {
+ html {
   color: var(--color-text);
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
+}
+
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: 'Inter var', sans-serif;
+  }
 }
 
 /**
