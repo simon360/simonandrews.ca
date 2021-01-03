@@ -1,0 +1,49 @@
+/**
+ * 1. One size up on the typographic scale
+ */
+
+.title {
+  font-size: var(--font-size-page-title);
+  font-weight: var(--font-weight-bold);
+  margin-right: var(--space-lg);
+  padding: var(--space-sm) 0;
+}
+
+.titleLogo {
+  height: 1.25em; /* 1 */
+  margin-right: 0.25em;
+  vertical-align: middle;
+}
+
+.navIcon {
+  vertical-align: middle;
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.navLink {
+  display: inline;
+  margin-right: var(--space-sm);
+}
+
+.navLink:last-child {
+  margin-right: 0;
+}
+
+.navList {
+  display: inline-block;
+  list-style: none;
+  margin: 0 var(--space-lg) 0 0;
+  padding: var(--space-sm) 0;
+}
+
+.navList:last-child {
+  margin-right: 0;
+}
+
+.wrapper {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
