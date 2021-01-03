@@ -1,0 +1,21 @@
+.wrapper {
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/**
+ * Using the adjacent sibling selector here, to create spacing between
+ * paragraphs. Normally, VerticalSpacing would be preferred here, but with
+ * paragraohs, the convenience is sufficiently large that I made an exception.
+ *
+ * Space only exists _between_ paragraphs, so that spacing before and after
+ * groups of them can be more finely controlled.
+ */
+.wrapper + .wrapper {
+  margin-top: 1em;
+}
+
+.lead {
+  font-size: var(--font-size-lead);
+}
