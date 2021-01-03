@@ -1,4 +1,4 @@
-import '../theme/index.css'
+import "../theme/index.css"
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />

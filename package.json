@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "format": "prettier --write \"**/*.{css,js,jsx,json,md,mdx}\"",
     "build": "next build",
     "start": "next start"
   },
@@ -13,6 +14,7 @@
     "class-names": "^1.0.0",
     "next": "10.0.4",
     "next-svgr": "0.0.2",
+    "prettier": "^2.2.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-feather": "^2.0.9"

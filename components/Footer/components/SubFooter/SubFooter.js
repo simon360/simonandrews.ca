@@ -57,7 +57,9 @@ export default function SubFooter({ contactInfo, siteLinks, socialLinks }) {
               <ul className={links}>
                 {siteLinks.map(({ title, url }) => (
                   <li className={link} key={url}>
-                    <Link href={url}><a>{title}</a></Link>
+                    <Link href={url}>
+                      <a>{title}</a>
+                    </Link>
                   </li>
                 ))}
               </ul>

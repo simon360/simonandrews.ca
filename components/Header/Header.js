@@ -61,7 +61,9 @@ export default function Header({ siteLinks, siteTitle = ``, socialLinks }) {
               <ul className={navList}>
                 {siteLinks.map(({ title, url }) => (
                   <li key={url} className={navLink}>
-                    <Link href={url}><a>{title}</a></Link>
+                    <Link href={url}>
+                      <a>{title}</a>
+                    </Link>
                   </li>
                 ))}
               </ul>

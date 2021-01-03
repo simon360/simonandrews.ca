@@ -1,10 +1,10 @@
-const withMDX = require('@next/mdx')({
+const withMDX = require("@next/mdx")({
   extension: /\.mdx?$/,
 })
 const withSvgr = require("next-svgr")
 
 module.exports = withSvgr(
   withMDX({
-    pageExtensions: ['js', 'jsx', 'mdx'],
+    pageExtensions: ["js", "jsx", "mdx"],
   })
-);
+)
