@@ -1,5 +1,5 @@
 function getBaseUrl() {
-  if (process.env.VERCEL_URL) {
+  if (process.env.PUBLIC_VERCEL_URL) {
     // Vercel doesn't provide a protocol on its URLs. (So, technically, this
     // isn't a URL, but I'll put pedantry aside.)
     return `https://${process.env.PUBLIC_VERCEL_URL}`
