@@ -5,17 +5,18 @@ import PropTypes from "prop-types"
 import Footer from "@/components/Footer"
 import Header from "@/components/Header"
 import Heading from "@/components/Heading"
+import Link from "@/components/Link"
 import Paragraph from "@/components/Paragraph"
 import Section from "@/components/Section"
 import Surface from "@/components/Surface"
 import Seo from "@/components/Seo"
-import VerticalSpacing from "@/components/VerticalSpacing"
 
 import site from "@/data/site"
 
 import { content, wrapper } from "./Layout.module.css"
 
 const components = {
+  a: Link,
   h1: Heading.Centered.H1,
   h2: Heading.Centered.H2,
   h3: Heading.Centered.H3,
