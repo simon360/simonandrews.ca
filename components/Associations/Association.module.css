@@ -23,6 +23,7 @@
     grid-template-areas:
       "title title title logo"
       "positions positions positions logo";
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 
@@ -41,8 +42,7 @@
 }
 
 .logo {
-  object-fit: contain;
-  object-position: right top;
+  flex: 1;
   max-width: 12rem;
   max-height: 4rem;
 }
