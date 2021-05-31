@@ -1,0 +1,44 @@
+import VerticalSpacing from "@/components/VerticalSpacing"
+import StandardLayout from "@/layouts/StandardLayout"
+
+# Projects
+
+Occasionally, I write code for fun. Coding outside of work is _definitely_ not for everyone, but it's something I enjoy.
+
+I've contributed to a few open source projects, and occasionally build random little hacks. Most of that work can be found on [my GitHub profile](https://www.github.com/simon360).
+
+Here's some of the stuff I've done, which I think is interesting or notable.
+
+<VerticalSpacing size="xl" />
+
+## [`simonandrews.ca`](https://github.com/simon360/simonandrews.ca)
+
+It's this website. Built with [Next.js](https://nextjs.org) and [CSS modules](https://github.com/css-modules/css-modules). Used to be built with [Gatsby](https://www.gatsbyjs.com), but never really benefitted from it.
+
+This site is a bit of a sandbox for me, a place to try out new ideas or scratch a coding itch. I constantly swap around frameworks, hosts, and any number of other variables.
+
+<VerticalSpacing size="xl" />
+
+## [`react-from-markup`](https://github.com/simon360/react-from-markup)
+
+If you want to server-side render React code, you should use one of the [many](https://nextjs.org), [many](https://www.gatsbyjs.com) [solutions](https://remix.run) available out there. But if you _absolutely cannot_ use them, this might be of use to you. Maybe. Approach with caution.
+
+`react-from-markup` came about when I was doing some work for Thomson Reuters. The site was built using Adobe Experience Manager, but we wanted to build a component library using React. So, we came up with a compromise: AEM would generate some placeholder markup (in most cases, by copying and pasting the component markup into AEM's templating language). Then, we would run a bootstrapping script (now known as `react-from-markup`) that converted the placeholder markup to React components. It's a kind of server-side rendering, but much more involved than universal React.
+
+It worked surprisingly well, though, other than the nature of copy-and-paste. And, as a bonus, we didn't need to load all the components on the page as JavaScript - we only needed the interactive ones.
+
+As of this writing, it's in use at a number of surprisingly large companies, though it's normally forked off to meet their specific needs. I don't actively support it, but the code's there if you're interested.
+
+<VerticalSpacing size="xl" />
+
+## [`class-references`](https://github.com/simon360/class-references)
+
+Stop worrying about edge cases when you add and remove classes on DOM elements.
+
+In its most basic form: an easy way to prevent scrolling on your page when a dialog is open, and restore scrolling when it closes. It solves the problem where multiple components may need to prevent scrolling, and scrolling should only be restored when _all_ of them leave the page.
+
+export const meta = {
+  title: "Projects",
+}
+
+export default StandardLayout
