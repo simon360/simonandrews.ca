@@ -10,9 +10,16 @@
 }
 
 .titleLogo {
+  display: none;
   height: 1.25em; /* 1 */
   margin-right: 0.25em;
   vertical-align: middle;
+}
+
+@media (min-width: 22rem) {
+  .titleLogo {
+    display: inline;
+  }
 }
 
 .navIcon {
