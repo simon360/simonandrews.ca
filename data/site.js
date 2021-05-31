@@ -22,7 +22,10 @@ const site = {
   image: "/images/social-image.png",
   favicon: "/favicon.png",
 
-  siteLinks: [{ title: "CV", url: "/" }],
+  siteLinks: [
+    { title: "CV", url: "/" },
+    { title: "Projects", url: "/projects" },
+  ],
   socialLinks: [
     {
       title: "simon360 on GitHub",
