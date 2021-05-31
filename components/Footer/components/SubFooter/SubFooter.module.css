@@ -18,7 +18,7 @@
 }
 
 .link {
-  margin-bottom: var(--space-xs);
+  margin-bottom: var(--space-sm);
 }
 
 .link:last-child {
