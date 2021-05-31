@@ -2,6 +2,7 @@ import Celtx from "@/images/logo-celtx.svg"
 import EffortlessAdmin from "@/images/logo-effortless-admin.svg"
 import HubbleHQ from "@/images/logo-hubblehq.svg"
 import Neowin from "@/images/logo-neowin.svg"
+import OlympiaTrustCompany from "@/images/logo-olympia-trust-company.svg"
 import ThomsonReuters from "@/images/logo-thomson-reuters.svg"
 import UniversityOfCalgary from "@/images/logo-university-of-calgary.svg"
 
@@ -76,13 +77,7 @@ const home = {
       company: "Olympia Trust Company",
       brandColor: "#AC8A2E",
       href: "https://olympiatrust.com",
-      logo: {
-        type: "img",
-        imgAttributes: {
-          alt: "",
-          src: `/images/logo-olympia-trust-company.png`,
-        },
-      },
+      logo: { type: "component", component: OlympiaTrustCompany },
       positions: [
         {
           title: ".NET Developer (intern)",
