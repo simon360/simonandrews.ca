@@ -1,15 +1,15 @@
 import { MDXProvider } from "@mdx-js/react"
 import React from "react"
 import PropTypes from "prop-types"
-import Image from "next/image"
 
 import Footer from "@/components/Footer"
 import Header from "@/components/Header"
 import Heading from "@/components/Heading"
-import Hero from "@/components/Hero"
 import Paragraph from "@/components/Paragraph"
 import Section from "@/components/Section"
+import Surface from "@/components/Surface"
 import Seo from "@/components/Seo"
+import VerticalSpacing from "@/components/VerticalSpacing"
 
 import site from "@/data/site"
 
@@ -27,23 +27,15 @@ const Layout = ({ children, heroContent, meta }) => {
   return (
     <MDXProvider components={components}>
       <Seo meta={meta} />
-      <div className={wrapper}>
-        {/* Add a target for the Return To Top link */}
-        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid, jsx-a11y/anchor-is-valid, jsx-a11y/anchor-has-content */}
-        <a id="top" />
-
-        <Hero
-          background={
-            <Image layout="fill" objectFit="cover" src={meta.heroImage} />
-          }
-        >
+      <div className={wrapper} id="top">
+        <Surface backgroundColorType="muted">
           <Header
             siteTitle={site.title}
             siteLinks={site.siteLinks}
             socialLinks={site.socialLinks}
           />
           {heroContent}
-        </Hero>
+        </Surface>
 
         <main className={content}>
           <Section verticalPadding="xxl">{children}</Section>
