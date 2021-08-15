@@ -1,6 +1,12 @@
 import StandardLayout from "@/layouts/StandardLayout"
+import Paragraph from "@/components/Paragraph"
 
-# How to stop email spoofing on your domain
+# I figured out how DMARC works, and it almost broke me
+
+<Paragraph isLead>
+  How to prevent email spoofing on your domain, using an unholy combination of
+  silly standards.
+</Paragraph>
 
 Recently, I encountered a problem. My domain didn't correctly implement SPF, DKIM, or DMARC.
 
@@ -349,10 +355,17 @@ But hopefully, now that you're here, you've got a basic understanding, and perha
 
 Thanks for coming along on this crazy, not-really-that-satisfying journey with me. I'll try and keep this post updated as I learn more, and welcome any and all feedback you might have. If I got anything wrong here (I'm absolutely certain I did), please reach out to <hello@sadl.io>.
 
+<Paragraph>
+  <i>
+    Last updated:{" "}
+    <date time="2021-08-15T21:35:00+1">15 August 2021, 9:35 PM BST</date>
+  </i>
+</Paragraph>
+
 export const meta = {
-  title: "How to stop email spoofing on your domain",
+  title: "I figured out how DMARC works, and it almost broke me",
   description:
-    "Use SPF, DKIM, and DMARC to improve your domain's email security - but written for humans.",
+    "How to use SPF, DKIM, and DMARC to improve your domain's email security and limit spoofing - but written for humans.",
 }
 
 export default StandardLayout
