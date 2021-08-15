@@ -1,0 +1,7 @@
+.wrapper {
+  line-height: 1.5;
+}
+
+.itemWrapper + .itemWrapper {
+  margin-top: 0.1em;
+}
