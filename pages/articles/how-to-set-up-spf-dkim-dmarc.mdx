@@ -343,7 +343,7 @@ It's in your hands now, though.
 - dmarc.org have a good overview of [what DMARC records are made of](https://dmarc.org/overview/). If you want to skip right to the meaty stuff, read the section titled "Anatomy of a DMARC resource record in the DNS"
 - dmarc.org also have a list of [code and libraries](https://dmarc.org/resources/code-and-libraries/) you can use. That's where I found lafayette.
 - dmarcian have a [DMARC Record Checker](https://dmarcian.com/dmarc-inspector/), which will help validate that your policy is set up well.
-- Postmark have a [guide to DMARC tools](https://postmarkapp.com/blog/best-dmarc-tools). This guide is a good, fairly-unbiased breakdown. You're going to pay for a service here, and Postmark come at it with an unbiased perspective because - as of this writing - they don't provide such a service themselves. Postmark also, generally, know what they're talking about with email.
+- Postmark have a [guide to DMARC tools](https://postmarkapp.com/blog/best-dmarc-tools). This guide is a good, fairly-unbiased breakdown. You're likely going to pay for a service here, <s>and Postmark come at it with an unbiased perspective because - as of this writing - they don't provide such a service themselves.</s> but Postmark give a reasonable breakdown (it turns out DMARC Digests is a service they provide, so it's not an unbiased source. Thanks to [max1cc on Hacker News](https://news.ycombinator.com/item?id=28193601) for pointing this out.)
 
 ## Wrapping up
 
@@ -355,11 +355,15 @@ But hopefully, now that you're here, you've got a basic understanding, and perha
 
 Thanks for coming along on this crazy, not-really-that-satisfying journey with me. I'll try and keep this post updated as I learn more, and welcome any and all feedback you might have. If I got anything wrong here (I'm absolutely certain I did), please reach out to <hello@sadl.io>.
 
+### Corrections
+
+1. A previous version of this article claimed that Postmark provided an unbiased view on DMARC analysis services, because they did not provide such a service. In fact, they do, called DMARC Digests, which is mentioned in their guide. Thanks to [max1cc on Hacker News](https://news.ycombinator.com/item?id=28193601) for correcting this.
+
 <Paragraph>
   <small>
     Last updated:{" "}
     <time dateTime="2021-08-15T21:35:00.000+0100">
-      15 August 2021, 9:35 PM BST
+      16 August 2021, 00:56 AM BST
     </time>
   </small>
 </Paragraph>
