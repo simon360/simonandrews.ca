@@ -2,11 +2,21 @@ import classnames from "class-names"
 import PropTypes from "prop-types"
 import React from "react"
 
-import { wrapper, centered, sm, md, lg, xl } from "./Heading.module.css"
+import {
+  wrapper,
+  centered,
+  marginWhenAdjacent,
+  sm,
+  md,
+  lg,
+  xl,
+} from "./Heading.module.css"
 
 const Heading = ({
   children,
   isCentered,
+  isMarginWhenAdjacent,
+  id = null,
   element = "h2",
   spaceAfter = "lg",
   type = "lg",
@@ -22,7 +32,9 @@ const Heading = ({
         [xl]: type === "xl",
 
         [centered]: isCentered,
+        [marginWhenAdjacent]: isMarginWhenAdjacent,
       })}
+      id={id}
       style={spaceAfter ? { marginBottom: `var(--space-${spaceAfter})` } : {}}
     >
       {children}
@@ -45,6 +57,11 @@ Heading.propTypes = {
    * Center the text?
    */
   isCentered: PropTypes.bool,
+
+  /**
+   * Should a top margin be applied when this heading appears _after_ another sibling element?
+   */
+  isMarginWhenAdjacent: PropTypes.bool,
 
   /**
    * Space after the heading
@@ -77,6 +94,14 @@ Heading.Centered = {}
 Object.entries(headingLevels).forEach(([key, Component]) => {
   Heading[key] = Component
   Heading.Centered[key] = (props) => <Component isCentered {...props} />
+})
+
+Heading.MarginWhenAdjacent = {}
+Object.entries(headingLevels).forEach(([key, Component]) => {
+  Heading[key] = Component
+  Heading.MarginWhenAdjacent[key] = (props) => (
+    <Component isMarginWhenAdjacent {...props} />
+  )
 })
 
 export default Heading

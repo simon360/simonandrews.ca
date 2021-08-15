@@ -15,6 +15,10 @@ import site from "@/data/site"
 
 import { content, wrapper } from "./Layout.module.css"
 
+// Support syntax highlighting on articles
+// Markup is added by rehype-prism, this is just the CSS
+import "prismjs/themes/prism-tomorrow.css"
+
 const components = {
   a: Link,
   h1: Heading.H1,

@@ -10,14 +10,19 @@
     "start": "next start"
   },
   "dependencies": {
+    "@mapbox/rehype-prism": "^0.7.0",
     "@mdx-js/loader": "^1.6.22",
     "@next/mdx": "^10.2.3",
     "class-names": "^1.0.0",
-    "next": "^10.2.3",
+    "next": "^11.1.0",
     "next-svgr": "0.0.2",
+    "prismjs": "^1.24.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-feather": "^2.0.9"
+    "react-feather": "^2.0.9",
+    "rehype-parse": "^8.0.2",
+    "remark-slug": "^6.1.0",
+    "remark-toc": "^7.0.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.25.0",

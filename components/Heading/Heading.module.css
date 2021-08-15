@@ -2,6 +2,10 @@
   margin: 0;
 }
 
+* + .wrapper.marginWhenAdjacent {
+  margin-top: 1.75em;
+}
+
 .centered {
   text-align: center;
 }
