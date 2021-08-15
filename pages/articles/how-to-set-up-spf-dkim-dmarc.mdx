@@ -259,7 +259,58 @@ Start collecting these reports. If it's just a personal domain, you might be hap
 
 Regardless, after you've got some reports through, start analysing the reports. Are emails failing SPF or DKIM tests, that shouldn't be? Did you misconfigure a service? Are you or your company sending emails with a service you weren't aware of? Or, is there a spoofer who's aggressively abusing your domain?
 
-You'll find your feet here, with a bit of time.
+What can you expect? Well, here's a report I got, after I ran that PHP script from earlier and sent to a Gmail address I have. I added in some comments, to outline what it's telling you.
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<feedback>
+  <report_metadata>
+    <!-- Details who prepared this report (Google's mail servers) -->
+    <org_name>google.com</org_name>
+    <email>noreply-dmarc-support@google.com</email>
+    <extra_contact_info>https://support.google.com/a/answer/2466580</extra_contact_info>
+    <report_id>14538673265069095400</report_id>
+    <date_range>
+      <begin>1628899200</begin>
+      <end>1628985599</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <!-- This is the DMARC policy that Google's mail servers found for simonandrews.ca -->
+    <domain>simonandrews.ca</domain>
+    <adkim>r</adkim>
+    <aspf>r</aspf>
+    <p>none</p> <!-- This is what we set, p=none -->
+    <sp>none</sp>
+    <pct>100</pct> <!-- This is also what we set - pct=100 -->
+  </policy_published>
+  <record>
+    <!-- Here's some details about the offending email(s) Google received -->
+    <row>
+      <source_ip>81.100.0.0</source_ip> <!-- (I censored out the IP) -->
+      <count>2</count> <!-- I ran the script 2 times, which is reflected here -->
+      <policy_evaluated>
+        <dkim>fail</dkim> <!-- DKIM failed -->
+        <spf>fail</spf> <!-- SPF failed -->
+        <disposition>none</disposition> <!-- But, since p=none, no action was taken, except producing this report -->
+      </policy_evaluated>
+    </row>
+    <identifiers>
+      <header_from>simonandrews.ca</header_from> <!-- These emails were trying to spoof simonandrews.ca -->
+    </identifiers>
+    <auth_results>
+      <spf>
+        <domain>simons-mbp.lan</domain> <!-- But they were actually sent from simons-mbp.lan -->
+        <result>none</result>
+      </spf>
+    </auth_results>
+  </record>
+</feedback>
+```
+
+If you're running a large domain, you'll get a bunch of these reports. If you're running a small one, you might be able to handle it yourself.
+
+Regardless, with a bit of time, you'll be confident you've set the policy correctly.
 
 #### Increase the strictness
 
