@@ -68,7 +68,7 @@ If SPF were set up, here's what would happen when that script runs:
 3. Since it's an email from `example.com`, Google gets the DNS records for `example.com`
 4. `example.com` has an SPF policy declared, which states that emails can only be sent from Google.
 5. This email wasn't sent from Google; it was sent from a local mail server.
-6. Since the "from" email domain doesn't match the domain that actually sent the email, it's marked as spam. _Maybe_.
+6. Since the sending domain doesn't match a domain that's allowed by `example.com`, the email is marked as spam. _Maybe_.
 
 Wait... _maybe_? Yeah. SPF sounds great in principle. But it often has no effect without DMARC. We'll get to that, but suffice to say: if you've just set up SPF, it's mostly informational. Some email servers _might_ use it, but they might not treat it with much importance. DMARC lets you increase its importance.
 
