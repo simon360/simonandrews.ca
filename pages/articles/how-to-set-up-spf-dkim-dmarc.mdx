@@ -246,8 +246,17 @@ There's the _policy_ declarations:
 
 And then we've got the _reporting_ declarations:
 
-- `rua=mailto:postmaster@simonandrews.ca` tells an email server to send **aggregate** reports of spoofed emails to `postmaster@simonandrews.ca`
-- `ruf=mailto:postmaster@simonandrews.ca` tells an email server to send **forensic** reports of spoofed emails to `postmaster@simonandrews.ca`
+```txt
+rua=mailto:postmaster@simonandrews.ca
+```
+
+This tells an email server to send **aggregate** reports of spoofed emails to `postmaster@simonandrews.ca`
+
+```txt
+ruf=mailto:postmaster@simonandrews.ca
+```
+
+This tells an email server to send **forensic** reports of spoofed emails to `postmaster@simonandrews.ca`
 
 This policy... works. If you set up your own postmaster email address, and use this DMARC record, you'll be well on your way. Go ahead and do that. Within a few days, you'll start getting reports.
 
