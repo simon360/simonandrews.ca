@@ -6,7 +6,7 @@
     "dev": "next dev",
     "format": "prettier --write \"**/*.{css,js,jsx,json,md,mdx}\"",
     "lint": "eslint .",
-    "build": "next build",
+    "build": "next build && next-sitemap --config next-sitemap.config.js",
     "start": "next start"
   },
   "dependencies": {
@@ -15,6 +15,7 @@
     "@next/mdx": "^10.2.3",
     "class-names": "^1.0.0",
     "next": "^11.1.0",
+    "next-sitemap": "^1.6.157",
     "next-svgr": "0.0.2",
     "prismjs": "^1.24.1",
     "react": "^17.0.2",
