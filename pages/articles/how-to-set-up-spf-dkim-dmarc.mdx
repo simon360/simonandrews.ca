@@ -178,6 +178,19 @@ In other words: email is complicated.
 
 Luckily, as I said, I've done the hard work here, because I don't think _anybody_ should have to figure this out on their own again. For you, this process will have to play out over the course of a few days or, more likely, a few weeks, but within a few minutes, you can be well on your way.
 
+#### Let's talk about alignment
+
+Here's the magic bit of DMARC, that makes all of this sing: it enforces _alignment_ between either the _envelope from_ (aka SMTP MAIL FROM) and the From header, _or_ the domain on the DKIM signature and the From header. In both cases, the From header can be thought of as the anchor: it's the thing users see, so either SPF or DKIM needs to vouch that the From header is what it should be.
+
+This finally does the thing we set out to do. That PHP script at the top will, now, only succeed in getting an email to the inbox if one of two things is true:
+
+1. The PHP script is running on an IP address that is authorised to send for `example.com` using SPF, _and_ both the SMTP MAIL FROM and the From header end in `example.com`, _or_
+2. The PHP script is hooked up to a mail server that can sign an email with DKIM, using a key that's valid for `example.com`, and the From header ends in `example.com`.
+
+(In both cases, assume the `mail()` function is hooked up to a mail server on the same IP. Otherwise, the words I have to use just become a jumble. The script could be hooked up to an external mail server, and as long as _that_ mail server is allowed in SPF, or can sign for the domain with DKIM, it'll work fine.)
+
+Now might be a good time to jump back to the [envelope from](#on-envelopes-vs-letters) section - it pairs nicely with this section.
+
 ## How do I use them?
 
 Here's the good news: you _probably_ have SPF and DKIM records set up for your domain. These days, most email services will give you the correct DNS records to add, and offer tools to verify that they're set up correctly.
@@ -387,8 +400,8 @@ You can take a look through all the changes I've made [on GitHub](https://github
 <Paragraph>
   <small>
     Last updated:{" "}
-    <time dateTime="2021-08-17T18:30:00.000+0100">
-      17 August 2021, 6:30 PM BST
+    <time dateTime="2021-08-17T19:10:00.000+0100">
+      17 August 2021, 7:10 PM BST
     </time>
   </small>
 </Paragraph>
