@@ -78,6 +78,26 @@ If SPF were set up, here's what would happen when that script runs:
 
 Wait... _maybe_? Yeah. SPF sounds great in principle. But it often has no effect without DMARC. We'll get to that, but suffice to say: if you've just set up SPF, it's mostly informational. Some email servers _might_ use it, but they might not treat it with much importance. DMARC lets you increase its importance.
 
+#### On envelopes vs. letters
+
+This section gets even weirder, but bear with me. You might want to skim this now, read the rest of the article, and come back to it again after. It makes a lot more sense once you understand DMARC alignment, but we're not there yet. Alright. Here goes.
+
+First off: shout out to Liam, who correctly pointed out an inaccuracy with this description of SPF. SPF _actually_ checks the validity of the "envelope from", not "from".
+
+Liam pointed me to an article that explains the difference between two things: an email (think of it as a letter), and the SMTP interactions that transport that letter (an envelope). It's from XEAMS, and you can (and should!) [read it here](https://www.xeams.com/difference-envelope-header.htm). But I'll paraphrase it:
+
+The **email** is what you see in your client. It includes the message body, and a whole bunch of headers. Those headers include the `From` header, which we spoofed in that PHP script, as well as the email subject, DKIM headers (we'll get to those in a moment!) and a whole bunch of other headers. Most email headers are soft-hidden from users by their email clients, but you can always view them - in your email client, whether it's an app or a website, you'll probably be able to find a menu item called "View original" or "View raw message". That'll show you what an email _really_ is. But it doesn't show you the envelope.
+
+The **envelope** is what happens at the SMTP level. I'll defer to the XEAMS article on what SMTP looks like, but in effect: the _envelope_ can contain a _completely_ different `MAIL FROM` email address than the email's `From` header.
+
+You'll here a few different terms thrown around to describe the SMTP `MAIL FROM` command: envelope from, return to, bounce address. They're all the same thing. I like "envelope from" colloquially, because the analogy is clever, but I think it's useful to know that it comes from the SMTP protocol command used to deliver your email.
+
+Which brings us to this: SPF _doesn't actually care about the From header in your email_. It only cares about the `MAIL FROM` value.
+
+Later on, we'll talk about DMARC alignment. But here's a spoiler: with DMARC alignment, you're saying "in order for an email to be valid, the FROM address has to pass SPF, and the domain in the From _header_ has to be the same as the domain in the FROM address." In effect, it makes that PHP spoofing example run _roughly_ the way you'd expect, but it takes a circuitous route to get there.
+
+I've left this inaccuracy in the above section. Why? Well... explaining the difference between envelope from and the From header has taken up as much space on this page as the explanation of spoofing. If I explained this _first_, you'd be too far in the weeds by the time we get to the real example. Sorry for misleading you - but if it helps, I wrote the first version of this article not knowing the difference, and I still _essentially_ got a decent understanding of SPF out of it.
+
 ### DKIM
 
 `DKIM` is a way to declare signing keys for emails from your domain. It stands for DomainKeys Identified Mail. Again... that doesn't matter. It's Dee-Kim. You can think of it as SPF's cryptographic cousin.
@@ -357,13 +377,14 @@ Thanks for coming along on this crazy, not-really-that-satisfying journey with m
 
 ### Corrections
 
-1. A previous version of this article claimed that Postmark provided an unbiased view on DMARC analysis services, because they did not provide such a service. In fact, they do, called DMARC Digests, which is mentioned in their guide. Thanks to [max1cc on Hacker News](https://news.ycombinator.com/item?id=28193601) for correcting this.
+1. A previous version of this article claimed that Postmark provided an unbiased view on DMARC analysis services, because they did not provide such a service. In fact, they do, called DMARC Digests, which is mentioned in their guide. **Thanks to [max1cc on Hacker News](https://news.ycombinator.com/item?id=28193601) for correcting this.**
+2. The SPF section claims that SPF works on the From header. In fact, it works on the "envelope from", which only exists at the SMTP transport level. Rather than correcting this (I _did_ try, but the section came out too complex), I added an additional section that explains the difference. **Thanks to Liam for reaching out over email and setting me straight.**
 
 <Paragraph>
   <small>
     Last updated:{" "}
-    <time dateTime="2021-08-15T21:35:00.000+0100">
-      16 August 2021, 00:56 AM BST
+    <time dateTime="2021-08-17T18:30:00.000+0100">
+      17 August 2021, 6:30 PM BST
     </time>
   </small>
 </Paragraph>
