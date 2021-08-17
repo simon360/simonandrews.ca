@@ -18,6 +18,8 @@ There's two main sections here: a human explanation of what these things are, fo
 
 This might not be easy, but if you've landed here, it's probably not optional. I hope this helps.
 
+_I'm keeping this article up-to-date as I learn more, so it'll change and grow. If you want to keep track of what's changed since the last time you were here, [check the diffs on GitHub](https://github.com/simon360/simonandrews.ca/commits/main/pages/articles/how-to-set-up-spf-dkim-dmarc.mdx)._
+
 ## Table of contents
 
 <!-- This section will be dynamically replaced with the table of contents. Please ignore it in editing. -->
@@ -376,6 +378,8 @@ But hopefully, now that you're here, you've got a basic understanding, and perha
 Thanks for coming along on this crazy, not-really-that-satisfying journey with me. I'll try and keep this post updated as I learn more, and welcome any and all feedback you might have. If I got anything wrong here (I'm absolutely certain I did), please reach out to <hello@sadl.io>.
 
 ### Corrections
+
+You can take a look through all the changes I've made [on GitHub](https://github.com/simon360/simonandrews.ca/commits/main/pages/articles/how-to-set-up-spf-dkim-dmarc.mdx) - if you've read this article before, and just want to check the new stuff, I'd suggest reading the diffs.
 
 1. A previous version of this article claimed that Postmark provided an unbiased view on DMARC analysis services, because they did not provide such a service. In fact, they do, called DMARC Digests, which is mentioned in their guide. **Thanks to [max1cc on Hacker News](https://news.ycombinator.com/item?id=28193601) for correcting this.**
 2. The SPF section claims that SPF works on the From header. In fact, it works on the "envelope from", which only exists at the SMTP transport level. Rather than correcting this (I _did_ try, but the section came out too complex), I added an additional section that explains the difference. **Thanks to Liam for reaching out over email and setting me straight.**
