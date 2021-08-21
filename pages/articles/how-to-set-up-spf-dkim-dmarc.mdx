@@ -380,6 +380,33 @@ It's in your hands now, though.
 - dmarcian have a [DMARC Record Checker](https://dmarcian.com/dmarc-inspector/), which will help validate that your policy is set up well.
 - Postmark have a [guide to DMARC tools](https://postmarkapp.com/blog/best-dmarc-tools). This guide is a good, fairly-unbiased breakdown. You're likely going to pay for a service here, <s>and Postmark come at it with an unbiased perspective because - as of this writing - they don't provide such a service themselves.</s> but Postmark give a reasonable breakdown (it turns out DMARC Digests is a service they provide, so it's not an unbiased source. Thanks to [max1cc on Hacker News](https://news.ycombinator.com/item?id=28193601) for pointing this out.)
 
+## Troubleshooting
+
+### Not receiving reports? You might need EDV
+
+_Thanks to [Nocolas Lenz](https://www.eisfunke.com) for reaching out with this!_
+
+If you've set everything up right, and are waiting for DMARC reports that just aren't coming, you might need to set up EDV.
+
+You can't send DMARC reports to _just anyone_. I can't, for example, set up DMARC on `simonandrews.ca` and send the reports to `tim@apple.com`. It's likely that Tim Cook doesn't want to know about the deliverability of mail from my domain (his loss). To prevent annoying, unsolicited reports, DMARC implements a system known as EDV (which, depending on who you talk to, means either External Domain Verification or External Destination Verification).
+
+So, when might you need it? You'd need to meet these two main conditions:
+
+1. You're sending your DMARC reports to a different domain. (EDV wouldn't be necessary if I were sending reports from `simonandrews.ca` to `postmaster@simonandrews.ca`, because it's not external. Remember: _external_ domain verification.)
+2. You're _not_ using a third-party DMARC reporting service. (These tools should have EDV set up automatically.)
+
+An example that _would_ require EDV: I'm setting up DMARC on `sadl.io`, a domain that I own, and I want to send reports to postmaster@simonandrews.ca, an email address on another domain that I own. In order for reporting to work, I'd need to configure DMARC on `sadl.io`, _and_ configure EDV on `simonandrews.ca` to allow DMARC reports related to `sadl.io`.
+
+Once you understand all of that, it's easy: add a DNS `TXT` record on the receiving domain (`simonandrews.ca`, in this case), on the `sadl.io._report._dmarc` subdomain, with a value of `v=DMARC1`. In other words, something like...
+
+```txt
+sadl.io._report._dmarc.simonandrews.ca TXT "v=DMARC1"
+```
+
+Now, before a provider sends off a report to `postmaster@simonandrews.ca`, for emails related to `sadl.io`, it'll check `sadl.io._report._dmarc.simonandrews.ca` to see if it's willing to receive them.
+
+You can find more on the dmarc.org article, [Receiving DMARC Reports Outside Your Domain](https://dmarc.org/2015/08/receiving-dmarc-reports-outside-your-domain/).
+
 ## Wrapping up
 
 Chances are, you should implement all of these. But your implementation will probably fork off from mine, as you learn about it.
