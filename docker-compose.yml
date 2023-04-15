@@ -42,7 +42,7 @@ services:
     environment:
       - CYPRESS_baseUrl=http://production:3000
     volumes:
-      - ./cypress:/app:delegated
+      - ./cypress:/app
       - /app/node_modules/
     profiles:
       - e2e

@@ -1,21 +1,36 @@
 steps:
   - id: "Build image"
-    name: "gcr.io/kaniko-project/executor:latest"
+    name: "gcr.io/cloud-builders/docker"
     args:
-      - --destination=${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY_NAME}/${_SERVICE_NAME}:${_PR_NUMBER}-${SHORT_SHA}
-      - --cache=true
+      [
+        "build",
+        "-t",
+        "${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY_NAME}/${_SERVICE_NAME}:${_PR_NUMBER}-${SHORT_SHA}",
+        ".",
+      ]
     env:
       - "DOCKER_BUILDKIT=1"
 
   - id: "Build Cypress"
-    name: "gcr.io/kaniko-project/executor:latest"
-    args:
-      - --dockerfile=./cypress/Dockerfile
-      - --destination=${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY_NAME}/${_SERVICE_NAME}_cypress
-      - --cache=true
+    name: "gcr.io/cloud-builders/docker"
+    args: ["build", "./cypress"]
     env:
       - "DOCKER_BUILDKIT=1"
     waitFor: ["-"]
+
+  - id: "Run Cypress tests"
+    name: "gcr.io/cloud-builders/docker"
+    args: ["compose", "--profile=e2e", "up", "--exit-code-from=cypress"]
+
+  - id: "Push image"
+    name: "gcr.io/cloud-builders/docker"
+    args:
+      [
+        "push",
+        "${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY_NAME}/${_SERVICE_NAME}:${_PR_NUMBER}-${SHORT_SHA}",
+      ]
+    env:
+      - "DOCKER_BUILDKIT=1"
 
   - id: "Deploy revision with tag"
     name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
