@@ -9,7 +9,7 @@ deps: ## Adjust dependencies before the build stage
 
 .PHONY: dev
 dev: ## Run the development environment
-	docker compose up --build --remove-orphans --abort-on-container-exit
+	docker compose --profile dev up --build --remove-orphans
 
 .PHONY: stop
 stop: ## Stop the development environment
@@ -18,6 +18,24 @@ stop: ## Stop the development environment
 .PHONY: production
 production: ## Run the production environment
 	docker compose run --build --service-ports production
+
+.PHONY: lint
+lint: ## Run linting
+	docker compose \
+		--profile lint \
+		up \
+		--build \
+		--remove-orphans \
+		--exit-code-from=lint
+
+.PHONY: e2e
+e2e: ## Run the e2e tests
+	docker compose \
+		--profile e2e \
+		up \
+		--build \
+		--remove-orphans \
+		--exit-code-from=cypress
 
 .PHONY: help
 help: ## This message

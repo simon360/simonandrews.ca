@@ -1,4 +1,4 @@
-version: '3.5'
+version: "3.5"
 services:
   dev:
     build:
@@ -9,6 +9,18 @@ services:
       - /app/node_modules/
     ports:
       - 3000:3000
+    networks:
+      - default
+    profiles:
+      - dev
+
+  lint:
+    build:
+      context: .
+      target: dev
+    command: npm run lint
+    profiles:
+      - lint
 
   deps:
     build:
@@ -25,6 +37,22 @@ services:
     build:
       context: .
     ports:
-      - 3000:3000
+      - 3001:3000
     profiles:
       - production
+      - e2e
+    networks:
+      - default
+
+  cypress:
+    build:
+      context: ./cypress
+    environment:
+      - CYPRESS_baseUrl=http://production:3000
+    volumes:
+      - ./cypress:/app
+      - /app/node_modules/
+    profiles:
+      - e2e
+    networks:
+      - default
