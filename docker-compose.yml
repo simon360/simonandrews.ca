@@ -1,0 +1,30 @@
+version: '3.5'
+services:
+  dev:
+    build:
+      context: .
+      target: dev
+    volumes:
+      - .:/app:delegated
+      - /app/node_modules/
+    ports:
+      - 3000:3000
+
+  deps:
+    build:
+      context: .
+      target: deps-dev
+    volumes:
+      - ./package.json:/app/package.json
+      - ./package-lock.json:/app/package-lock.json
+      - /src/node_modules/
+    profiles:
+      - deps
+
+  production:
+    build:
+      context: .
+    ports:
+      - 3000:3000
+    profiles:
+      - production
