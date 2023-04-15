@@ -5,11 +5,11 @@ build: ## Build the application
 
 .PHONY: deps
 deps: ## Adjust dependencies before the build stage
-	docker compose run deps sh
+	docker compose run --build deps sh
 
 .PHONY: dev
 dev: ## Run the development environment
-	docker compose up
+	docker compose up --build --remove-orphans --abort-on-container-exit
 
 .PHONY: stop
 stop: ## Stop the development environment
@@ -17,7 +17,7 @@ stop: ## Stop the development environment
 
 .PHONY: production
 production: ## Run the production environment
-	docker compose run --service-ports production
+	docker compose run --build --service-ports production
 
 .PHONY: help
 help: ## This message
