@@ -30,7 +30,6 @@ substitutions:
   _REPOSITORY_NAME: simonandrews-ca
   _SERVICE_NAME: simonandrews-ca
   _REGION: europe-west1
-  _GITHUB_REPO: $(pull_request.head.repo.full_name)
 
 options:
   dynamicSubstitutions: true
