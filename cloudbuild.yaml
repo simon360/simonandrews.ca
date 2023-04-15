@@ -1,0 +1,46 @@
+steps:
+  - id: "Build image"
+    name: "gcr.io/kaniko-project/executor:latest"
+    args:
+      - --destination=${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY_NAME}/${_SERVICE_NAME}
+      - --cache=true
+    env:
+      - "DOCKER_BUILDKIT=1"
+
+  - id: "Create Cloud Run revision"
+    name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+    entrypoint: "gcloud"
+    args:
+      [
+        "run",
+        "deploy",
+        "${_SERVICE_NAME}",
+        "--platform",
+        "managed",
+        "--region",
+        "${_REGION}",
+        "--image",
+        "${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY_NAME}/${_SERVICE_NAME}",
+      ]
+
+  # Force the new revision to serve 100% of traffic.
+  - id: "Set as production revision"
+    name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+    entrypoint: "gcloud"
+    args:
+      [
+        "run",
+        "services",
+        "update-traffic",
+        "${_SERVICE_NAME}",
+        "--to-latest",
+        "--platform",
+        "managed",
+        "--region",
+        "${_REGION}",
+      ]
+
+substitutions:
+  _REPOSITORY_NAME: simonandrews-ca
+  _SERVICE_NAME: simonandrews-ca
+  _REGION: europe-west1
