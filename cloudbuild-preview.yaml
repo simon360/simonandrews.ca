@@ -7,6 +7,16 @@ steps:
     env:
       - "DOCKER_BUILDKIT=1"
 
+  - id: "Build Cypress"
+    name: "gcr.io/kaniko-project/executor:latest"
+    args:
+      - --dockerfile=./cypress/Dockerfile
+      - --destination=${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY_NAME}/${_SERVICE_NAME}_cypress
+      - --cache=true
+    env:
+      - "DOCKER_BUILDKIT=1"
+    waitFor: ["-"]
+
   - id: "Deploy revision with tag"
     name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
     entrypoint: "gcloud"
