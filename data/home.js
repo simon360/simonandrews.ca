@@ -31,7 +31,7 @@ const home = {
       logo: { type: "component", component: HubbleHQ },
       positions: [
         {
-          title: "Director of Engineering",
+          title: "Head of Engineering",
           time: "July 2021 - Current",
         },
         {
