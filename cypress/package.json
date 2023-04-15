@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "name": "cypress",
+  "version": "1.0.0",
+  "description": "Cypress tests for simonandrews.ca",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "cypress": "^12.9.0"
+  }
+}
