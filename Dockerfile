@@ -15,6 +15,8 @@ RUN npm install --omit=dev
 
 FROM base AS dev
 
+RUN apk add --no-cache git
+
 ENV NODE_ENV development
 
 COPY --from=deps-dev /app/node_modules ./node_modules
