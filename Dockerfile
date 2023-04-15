@@ -5,13 +5,12 @@ WORKDIR /app
 
 ENV NEXT_TELEMETRY_DISABLED 1
 
-FROM base AS deps-dev
-COPY package.json package-lock.json ./
-RUN npm install
-
 FROM base AS deps-production
 COPY package.json package-lock.json ./
 RUN npm install --omit=dev
+
+FROM deps-production AS deps-dev
+RUN npm install
 
 FROM base AS dev
 

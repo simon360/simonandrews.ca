@@ -19,6 +19,15 @@ stop: ## Stop the development environment
 production: ## Run the production environment
 	docker compose run --build --service-ports production
 
+.PHONY: lint
+lint: ## Run linting
+	docker compose \
+		--profile lint \
+		up \
+		--build \
+		--remove-orphans \
+		--exit-code-from=lint
+
 .PHONY: e2e
 e2e: ## Run the e2e tests
 	docker compose \

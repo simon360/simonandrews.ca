@@ -14,6 +14,14 @@ services:
     profiles:
       - dev
 
+  lint:
+    build:
+      context: .
+      target: dev
+    command: npm run lint
+    profiles:
+      - lint
+
   deps:
     build:
       context: .

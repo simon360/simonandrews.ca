@@ -21,6 +21,12 @@ steps:
   - id: "Run Cypress tests"
     name: "gcr.io/cloud-builders/docker"
     args: ["compose", "--profile=e2e", "up", "--exit-code-from=cypress"]
+    waitFor: ["Build Cypress", "Build image"]
+
+  - id: "Lint code"
+    name: "gcr.io/cloud-builders/docker"
+    args: ["compose", "--profile=lint", "up", "--exit-code-from=lint"]
+    waitFor: ["Build image"]
 
   - id: "Push image"
     name: "gcr.io/cloud-builders/docker"
