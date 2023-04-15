@@ -15,5 +15,6 @@ module.exports = withSvgr(
       locales: ["en", "en-CA", "en-GB", "en-US"],
     },
     pageExtensions: ["js", "jsx", "mdx"],
+    output: "standalone",
   })
 )
