@@ -3,6 +3,11 @@ output "cloudflare_nameservers" {
   value       = data.cloudflare_zone.main.name_servers
 }
 
+output "load_balancer_ip" {
+  description = "Static IP of the HTTPS load balancer"
+  value       = google_compute_global_address.main.address
+}
+
 output "cloud_run_url" {
   description = "Public URL of the Cloud Run service"
   value       = google_cloud_run_v2_service.main.uri
