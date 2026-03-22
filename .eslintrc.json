@@ -1,10 +1,12 @@
 {
-  "extends": "react-app",
+  "extends": "next/core-web-vitals",
   "overrides": [
     {
       "files": "*.stories.js",
       "rules": {
-        "import/no-anonymous-default-export": "off"
+        "import/no-anonymous-default-export": "off",
+        "react/no-unescaped-entities": "off",
+        "@next/next/no-img-element": "off"
       }
     }
   ]
