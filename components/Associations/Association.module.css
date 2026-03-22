@@ -66,3 +66,16 @@
 .title {
   grid-area: title;
 }
+
+@media (min-width: 64rem) {
+  .title {
+    align-items: baseline;
+    display: flex;
+    gap: var(--space-md);
+  }
+}
+
+.note {
+  color: var(--color-text-secondary, #666);
+  font-size: 0.875rem;
+}

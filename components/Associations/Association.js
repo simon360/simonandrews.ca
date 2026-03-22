@@ -8,6 +8,7 @@ import {
   isFocus,
   logo,
   logoWrapper,
+  note as noteStyle,
   position,
   positionsWrapper,
   title,
@@ -24,6 +25,7 @@ export default function Association({
   href,
   isFocus: isFocusProp,
   logo: logoProp,
+  note,
   positions,
 }) {
   return (
@@ -41,6 +43,7 @@ export default function Association({
             company
           )}
         </Heading>
+        {note && <p className={noteStyle}>{note}</p>}
       </div>
 
       {logoProp && (
@@ -92,6 +95,11 @@ Association.propTypes = {
    * A link to the company's website
    */
   href: PropTypes.string,
+
+  /**
+   * An optional note displayed beneath the company name
+   */
+  note: PropTypes.string,
 
   /**
    * Is this association highlighted/emphasized in its display?
