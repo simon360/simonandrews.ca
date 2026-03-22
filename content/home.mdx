@@ -1,0 +1,75 @@
+import Associations, { Association } from "@/components/Associations"
+import Centered from "@/components/Centered"
+import Paragraph from "@/components/Paragraph"
+import Section from "@/components/Section"
+import Skills from "@/components/Skills"
+import VerticalSpacing from "@/components/VerticalSpacing"
+
+import home from "@/data/home"
+
+# CV
+
+## Work
+
+<Associations>
+  {home.work.map((node) => (
+    <Association key={node.company} {...node} />
+  ))}
+</Associations>
+
+<VerticalSpacing size="lg" />
+
+You might be interested in some of my [side projects](/projects), too.
+
+<VerticalSpacing size="xl" />
+
+## Skills
+
+<Skills>
+
+- <strong>Software Development</strong>
+- Documentation
+- Agile
+- Testing (unit, integration, e2e)
+- Components
+- Design systems
+- <strong>Web</strong>
+- HTML5
+- CSS
+- BEM
+- A11y
+- <strong>JavaScript</strong>
+- React
+- Next.js
+- Jest
+- <strong>Build tools</strong>
+- Webpack
+- Babel
+- PostCSS
+- Server-side rendering
+- <strong>Back-end</strong>
+- Node.js
+- .NET (C#)
+- Python
+- PHP
+- Java
+- SQL (various)
+- ORM
+- <strong>Management</strong>
+- One-to-ones
+- Career development
+- Hiring
+- Project management
+- Relationship building
+
+</Skills>
+
+<VerticalSpacing size="xxxl" />
+
+## Education
+
+<Associations>
+  {home.education.map((node) => (
+    <Association key={node.company} {...node} />
+  ))}
+</Associations>
