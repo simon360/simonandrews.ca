@@ -22,3 +22,4 @@ output "terraform_sa_email" {
   description = "Terraform service account email — set as TERRAFORM_SA_EMAIL in GitHub Actions variables"
   value       = google_service_account.terraform.email
 }
+

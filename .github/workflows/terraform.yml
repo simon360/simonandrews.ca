@@ -30,7 +30,9 @@ jobs:
           service_account: ${{ vars.TERRAFORM_SA_EMAIL }}
 
       - name: Set Terraform variables
-        run: echo "TF_VAR_project_id=${{ vars.GCLOUD_PROJECT }}" >> "$GITHUB_ENV"
+        run: |
+          echo "TF_VAR_project_id=${{ vars.GCLOUD_PROJECT }}" >> "$GITHUB_ENV"
+          echo "TF_VAR_cloudflare_api_token=${{ secrets.CLOUDFLARE_API_TOKEN }}" >> "$GITHUB_ENV"
 
       - uses: hashicorp/setup-terraform@v3
 
