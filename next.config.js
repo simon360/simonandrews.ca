@@ -1,20 +1,26 @@
 const withMDX = require("@next/mdx")({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [require("remark-slug"), require("remark-toc")],
-    rehypePlugins: [require("@mapbox/rehype-prism")],
+    remarkPlugins: [require("remark-toc")],
+    rehypePlugins: [
+      require("rehype-slug").default,
+      require("@mapbox/rehype-prism"),
+    ],
   },
 })
 
-const withSvgr = require("next-svgr")
-
-module.exports = withSvgr(
-  withMDX({
-    i18n: {
-      defaultLocale: "en-GB",
-      locales: ["en", "en-CA", "en-GB", "en-US"],
-    },
-    pageExtensions: ["js", "jsx", "mdx"],
-    output: "standalone",
-  })
-)
+module.exports = withMDX({
+  i18n: {
+    defaultLocale: "en-GB",
+    locales: ["en", "en-CA", "en-GB", "en-US"],
+  },
+  pageExtensions: ["js", "jsx", "mdx"],
+  output: "standalone",
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ["@svgr/webpack"],
+    })
+    return config
+  },
+})
