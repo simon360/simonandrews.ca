@@ -1,25 +1,25 @@
-import type { ReactNode } from 'react'
+import type { ReactNode } from "react"
 
-import Heading from '../components/Heading'
-import Paragraph from '../components/Paragraph'
-import Section from '../components/Section'
-import Surface from '../components/Surface'
-import VerticalSpacing from '../components/VerticalSpacing'
+import Heading from "../components/Heading"
+import Paragraph from "../components/Paragraph"
+import Section from "../components/Section"
+import Surface from "../components/Surface"
+import VerticalSpacing from "../components/VerticalSpacing"
 
 export default {
-  title: 'Theme|Color',
+  title: "Theme|Color",
 }
 
 const ColorGroup = ({ children }: { children?: ReactNode }) => (
   <div
     style={{
-      border: '4px solid white',
-      borderRadius: 'var(--space-sm)',
-      boxShadow: '0px 10px 20px var(--color-neutral-lightest)',
-      display: 'inline-flex',
-      margin: '0 var(--space-md) var(--soace-md) 0',
-      overflow: 'hidden',
-      width: 'auto',
+      border: "4px solid white",
+      borderRadius: "var(--space-sm)",
+      boxShadow: "0px 10px 20px var(--color-neutral-lightest)",
+      display: "inline-flex",
+      margin: "0 var(--space-md) var(--soace-md) 0",
+      overflow: "hidden",
+      width: "auto",
     }}
   >
     {children}
@@ -30,8 +30,8 @@ const IndividualColor = ({ value }: { value: string }) => (
   <div
     style={{
       backgroundColor: value,
-      height: 'var(--space-xxxl)',
-      width: 'var(--space-xxxl)',
+      height: "var(--space-xxxl)",
+      width: "var(--space-xxxl)",
     }}
   />
 )
@@ -46,7 +46,7 @@ export const Color = () => (
         <VerticalSpacing size="md" />
 
         <Paragraph>
-          The colors in the system. Colors were derived using{' '}
+          The colors in the system. Colors were derived using{" "}
           <a href="https://paletton.com/" target="_blank">
             Paletton
           </a>

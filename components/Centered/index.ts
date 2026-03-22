@@ -1,1 +1,1 @@
-export { default } from './Centered'
+export { default } from "./Centered"

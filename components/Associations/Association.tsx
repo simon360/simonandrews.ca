@@ -1,9 +1,9 @@
-import classnames from 'class-names'
+import classnames from "class-names"
 
-import Heading from '@/components/Heading'
-import type { Association as AssociationData } from '@/data/home'
+import Heading from "@/components/Heading"
+import type { Association as AssociationData } from "@/data/home"
 
-import styles from './Association.module.css'
+import styles from "./Association.module.css"
 
 export default function Association({
   brandColor,
@@ -35,13 +35,13 @@ export default function Association({
       {logoProp && (
         <div className={styles.logoWrapper}>
           {(function () {
-            if (logoProp.type === 'img' && logoProp.imgAttributes) {
+            if (logoProp.type === "img" && logoProp.imgAttributes) {
               return (
                 /* Disabling a11y rule; this is captured by `logoProp.imgAttributes.alt` being a required prop. */
                 // eslint-disable-next-line jsx-a11y/alt-text
                 <img {...logoProp.imgAttributes} className={styles.logo} />
               )
-            } else if (logoProp.type === 'component' && logoProp.component) {
+            } else if (logoProp.type === "component" && logoProp.component) {
               const Logo = logoProp.component
 
               return <Logo className={styles.logo} />

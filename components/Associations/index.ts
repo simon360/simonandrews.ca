@@ -1,2 +1,2 @@
-export { default } from './Associations'
-export { default as Association } from './Association'
+export { default } from "./Associations"
+export { default as Association } from "./Association"

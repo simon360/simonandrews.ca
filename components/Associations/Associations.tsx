@@ -1,6 +1,6 @@
-import type { ReactNode } from 'react'
+import type { ReactNode } from "react"
 
-import styles from './Associations.module.css'
+import styles from "./Associations.module.css"
 
 interface Props {
   children?: ReactNode

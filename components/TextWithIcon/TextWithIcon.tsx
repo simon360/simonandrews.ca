@@ -1,9 +1,9 @@
-import classnames from 'class-names'
-import type { FC, ReactNode, SVGProps } from 'react'
+import classnames from "class-names"
+import type { FC, ReactNode, SVGProps } from "react"
 
-import styles from './TextWithIcon.module.css'
+import styles from "./TextWithIcon.module.css"
 
-type IconAlignment = 'start' | 'end'
+type IconAlignment = "start" | "end"
 
 interface Props {
   children?: ReactNode
@@ -14,14 +14,16 @@ interface Props {
 export default function TextWithIcon({
   children,
   icon: IconComponent,
-  iconAlignment = 'start',
+  iconAlignment = "start",
 }: Props) {
   return (
     <>
-      {iconAlignment === 'start' && <IconComponent className={styles.icon} />}
+      {iconAlignment === "start" && <IconComponent className={styles.icon} />}
       {children}
-      {iconAlignment === 'end' && (
-        <IconComponent className={classnames(styles.icon, styles.iconAlignedEnd)} />
+      {iconAlignment === "end" && (
+        <IconComponent
+          className={classnames(styles.icon, styles.iconAlignedEnd)}
+        />
       )}
     </>
   )

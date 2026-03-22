@@ -1,1 +1,1 @@
-export { default } from './TextWithIcon'
+export { default } from "./TextWithIcon"

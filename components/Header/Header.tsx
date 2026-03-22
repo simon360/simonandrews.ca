@@ -1,22 +1,22 @@
-import type { FC, SVGProps } from 'react'
-import { Linkedin, GitHub, Instagram, Twitter, User } from 'react-feather'
+import type { FC, SVGProps } from "react"
+import { Linkedin, GitHub, Instagram, Twitter, User } from "react-feather"
 
-import Link from '@/components/Link'
-import Logo from '@/components/Logo'
-import Section from '@/components/Section'
-import type { SiteLink, SocialLink, SocialLinkType } from '@/data/site'
+import Link from "@/components/Link"
+import Logo from "@/components/Logo"
+import Section from "@/components/Section"
+import type { SiteLink, SocialLink, SocialLinkType } from "@/data/site"
 
-import styles from './Header.module.css'
+import styles from "./Header.module.css"
 
 function getIconForType(type: SocialLinkType): FC<SVGProps<SVGSVGElement>> {
   switch (type) {
-    case 'github':
+    case "github":
       return GitHub
-    case 'instagram':
+    case "instagram":
       return Instagram
-    case 'linkedin':
+    case "linkedin":
       return Linkedin
-    case 'twitter':
+    case "twitter":
       return Twitter
     default:
       return User
@@ -29,7 +29,11 @@ interface Props {
   socialLinks: SocialLink[]
 }
 
-export default function Header({ siteLinks, siteTitle = ``, socialLinks }: Props) {
+export default function Header({
+  siteLinks,
+  siteTitle = ``,
+  socialLinks,
+}: Props) {
   return (
     <header>
       <Section verticalPadding="md">

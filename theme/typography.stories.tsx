@@ -1,34 +1,34 @@
-import Heading from '../components/Heading'
-import Paragraph from '../components/Paragraph'
-import Section from '../components/Section'
-import Surface from '../components/Surface'
-import VerticalSpacing from '../components/VerticalSpacing'
+import Heading from "../components/Heading"
+import Paragraph from "../components/Paragraph"
+import Section from "../components/Section"
+import Surface from "../components/Surface"
+import VerticalSpacing from "../components/VerticalSpacing"
 
 export default {
-  title: 'Theme|Typography',
+  title: "Theme|Typography",
 }
 
 const TextSizes = () => (
   <Section verticalPadding="md">
-    <p style={{ fontSize: 'var(--font-size-base-down-2' }}>
+    <p style={{ fontSize: "var(--font-size-base-down-2" }}>
       Down 2: The quick brown fox jumps over the lazy dog
     </p>
-    <p style={{ fontSize: 'var(--font-size-base-down-1' }}>
+    <p style={{ fontSize: "var(--font-size-base-down-1" }}>
       Down 1: The quick brown fox jumps over the lazy dog
     </p>
-    <p style={{ fontSize: 'var(--font-size-base' }}>
+    <p style={{ fontSize: "var(--font-size-base" }}>
       Base: The quick brown fox jumps over the lazy dog
     </p>
-    <p style={{ fontSize: 'var(--font-size-base-up-1' }}>
+    <p style={{ fontSize: "var(--font-size-base-up-1" }}>
       Up 1: The quick brown fox jumps over the lazy dog
     </p>
-    <p style={{ fontSize: 'var(--font-size-base-up-2' }}>
+    <p style={{ fontSize: "var(--font-size-base-up-2" }}>
       Up 2: The quick brown fox jumps over the lazy dog
     </p>
-    <p style={{ fontSize: 'var(--font-size-base-up-3' }}>
+    <p style={{ fontSize: "var(--font-size-base-up-3" }}>
       Up 3: The quick brown fox jumps over the lazy dog
     </p>
-    <p style={{ fontSize: 'var(--font-size-base-up-4' }}>
+    <p style={{ fontSize: "var(--font-size-base-up-4" }}>
       Up 4: The quick brown fox jumps over the lazy dog
     </p>
   </Section>
@@ -51,16 +51,16 @@ export const Typography = () => (
         </Paragraph>
 
         <Paragraph>
-          Text is set in the{' '}
+          Text is set in the{" "}
           <a href="https://rsms.me/inter/" target="_blank">
             Inter
-          </a>{' '}
+          </a>{" "}
           font family.
         </Paragraph>
       </Section>
     </Surface>
 
-    <div style={{ position: 'relative' }}>
+    <div style={{ position: "relative" }}>
       <Surface backgroundColorType="muted" isSticky>
         <Section verticalPadding="lg">
           <Heading element="h2" type="md">
@@ -78,7 +78,7 @@ export const Typography = () => (
         </Heading>
       </Section>
     </Surface>
-    <div style={{ fontWeight: 'var(--font-weight-bold)' }}>
+    <div style={{ fontWeight: "var(--font-weight-bold)" }}>
       <TextSizes />
     </div>
 
@@ -89,7 +89,7 @@ export const Typography = () => (
         </Heading>
       </Section>
     </Surface>
-    <div style={{ fontStyle: 'italic' }}>
+    <div style={{ fontStyle: "italic" }}>
       <TextSizes />
     </div>
 
@@ -100,7 +100,7 @@ export const Typography = () => (
         </Heading>
       </Section>
     </Surface>
-    <div style={{ fontStyle: 'italic', fontWeight: 'var(--font-weight-bold)' }}>
+    <div style={{ fontStyle: "italic", fontWeight: "var(--font-weight-bold)" }}>
       <TextSizes />
     </div>
   </>

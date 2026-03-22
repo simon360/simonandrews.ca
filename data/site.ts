@@ -1,4 +1,9 @@
-export type SocialLinkType = 'github' | 'instagram' | 'linkedin' | 'twitter' | 'other'
+export type SocialLinkType =
+  | "github"
+  | "instagram"
+  | "linkedin"
+  | "twitter"
+  | "other"
 
 export interface SiteLink {
   title: string
@@ -24,7 +29,7 @@ function getBaseUrl(): string {
   }
 
   // Fall back to the default
-  return 'https://www.simonandrews.ca'
+  return "https://www.simonandrews.ca"
 }
 
 const site = {
@@ -32,33 +37,33 @@ const site = {
   description: `Engineering Manager/Product Engineer based in London, UK`,
   author: `@simon360`,
   baseUrl: getBaseUrl(),
-  image: '/images/social-image.png',
-  favicon: '/favicon.png',
+  image: "/images/social-image.png",
+  favicon: "/favicon.png",
 
   siteLinks: [
-    { title: 'CV', url: '/' },
-    { title: 'Projects', url: '/projects' },
+    { title: "CV", url: "/" },
+    { title: "Projects", url: "/projects" },
   ] satisfies SiteLink[],
   socialLinks: [
     {
-      title: 'simon360 on GitHub',
-      type: 'github',
-      url: 'https://www.github.com/simon360',
+      title: "simon360 on GitHub",
+      type: "github",
+      url: "https://www.github.com/simon360",
     },
     {
-      title: 'simon360 on Instagram',
-      type: 'instagram',
-      url: 'https://www.instagram.com/simon360',
+      title: "simon360 on Instagram",
+      type: "instagram",
+      url: "https://www.instagram.com/simon360",
     },
     {
-      title: 'sadl-uk on LinkedIn',
-      type: 'linkedin',
-      url: 'https://www.linkedin.com/in/sadl-uk/',
+      title: "sadl-uk on LinkedIn",
+      type: "linkedin",
+      url: "https://www.linkedin.com/in/sadl-uk/",
     },
     {
-      title: '@simon360 on Twitter',
-      type: 'twitter',
-      url: 'https://www.twitter.com/simon360',
+      title: "@simon360 on Twitter",
+      type: "twitter",
+      url: "https://www.twitter.com/simon360",
     },
   ] satisfies SocialLink[],
 }

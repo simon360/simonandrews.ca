@@ -1,54 +1,54 @@
-import Heading from '../Heading'
-import Hero from '../Hero'
-import Paragraph from '../Paragraph'
-import Section from '../Section'
-import Surface from '../Surface'
-import VerticalSpacing from '../VerticalSpacing'
-import type { SiteLink, SocialLink } from '@/data/site'
+import Heading from "../Heading"
+import Hero from "../Hero"
+import Paragraph from "../Paragraph"
+import Section from "../Section"
+import Surface from "../Surface"
+import VerticalSpacing from "../VerticalSpacing"
+import type { SiteLink, SocialLink } from "@/data/site"
 
-import snow from '@/images/hero-snow.jpg'
+import snow from "@/images/hero-snow.jpg"
 
-import Header from '.'
+import Header from "."
 
 export default {
-  title: 'Components|Header',
+  title: "Components|Header",
 }
 
 const siteLinks: SiteLink[] = [
   {
-    title: 'CV',
-    url: '/',
+    title: "CV",
+    url: "/",
   },
   {
-    title: 'Blog',
-    url: '/blog',
+    title: "Blog",
+    url: "/blog",
   },
   {
-    title: 'Contact',
-    url: '/contact',
+    title: "Contact",
+    url: "/contact",
   },
 ]
 
 const socialLinks: SocialLink[] = [
   {
-    title: 'simon360 on GitHub',
-    type: 'github',
-    url: 'https://www.github.com/simon360',
+    title: "simon360 on GitHub",
+    type: "github",
+    url: "https://www.github.com/simon360",
   },
   {
-    title: 'simon360 on Instagram',
-    type: 'instagram',
-    url: 'https://www.instagram.com/simon360',
+    title: "simon360 on Instagram",
+    type: "instagram",
+    url: "https://www.instagram.com/simon360",
   },
   {
-    title: 'sadl-uk on LinkedIn',
-    type: 'linkedin',
-    url: 'https://www.linkedin.com/in/sadl-uk/',
+    title: "sadl-uk on LinkedIn",
+    type: "linkedin",
+    url: "https://www.linkedin.com/in/sadl-uk/",
   },
   {
-    title: '@simon360 on Twitter',
-    type: 'twitter',
-    url: 'https://www.twitter.com/simon360',
+    title: "@simon360 on Twitter",
+    type: "twitter",
+    url: "https://www.twitter.com/simon360",
   },
 ]
 
@@ -63,9 +63,9 @@ export const Primary = () => (
 )
 
 export const Transparent = ({
-  backgroundColorType = 'brand-primary',
+  backgroundColorType = "brand-primary",
 }: {
-  backgroundColorType?: 'brand-primary' | 'brand-secondary' | 'light' | 'muted'
+  backgroundColorType?: "brand-primary" | "brand-secondary" | "light" | "muted"
 }) => (
   <Surface backgroundColorType={backgroundColorType}>
     <Header
@@ -103,9 +103,9 @@ export const TransparentInAHero = () => (
         alt=""
         src={snow.src}
         style={{
-          height: '100%',
-          objectFit: 'cover',
-          width: '100%',
+          height: "100%",
+          objectFit: "cover",
+          width: "100%",
         }}
       />
     }

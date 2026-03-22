@@ -1,7 +1,7 @@
-import classnames from 'class-names'
-import type { ElementType, ReactNode } from 'react'
+import classnames from "class-names"
+import type { ElementType, ReactNode } from "react"
 
-import styles from './Centered.module.css'
+import styles from "./Centered.module.css"
 
 interface Props {
   className?: string
@@ -12,7 +12,7 @@ interface Props {
 
 export default function Centered({
   className,
-  component: Component = 'div',
+  component: Component = "div",
   children,
   ...props
 }: Props) {

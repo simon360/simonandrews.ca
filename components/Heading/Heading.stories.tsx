@@ -1,10 +1,14 @@
-import Heading from '.'
+import Heading from "."
 
 export default {
-  title: 'Components|Heading',
+  title: "Components|Heading",
 }
 
-export const ExtraLarge = ({ isCentered = false }: { isCentered?: boolean }) => (
+export const ExtraLarge = ({
+  isCentered = false,
+}: {
+  isCentered?: boolean
+}) => (
   <Heading element="h1" isCentered={isCentered} type="xl">
     Now this is the story all about how
   </Heading>
