@@ -55,4 +55,6 @@ export const meta = {
     "A list of interesting or notable projects that I work on in my spare time.",
 }
 
-export default StandardLayout
+export default function Layout({ children }) {
+  return <StandardLayout meta={meta}>{children}</StandardLayout>
+}

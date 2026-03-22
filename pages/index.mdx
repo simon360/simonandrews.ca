@@ -115,4 +115,10 @@ export const meta = {
   heroImage: "/images/hero-london-2.jpg",
 }
 
-export default HomeLayout
+export default function Layout({ children }) {
+  return (
+    <HomeLayout heroContent={heroContent} meta={meta}>
+      {children}
+    </HomeLayout>
+  )
+}
