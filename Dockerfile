@@ -40,8 +40,8 @@ ENV NODE_ENV production
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-# You only need to copy next.config.js if you are NOT using the default configuration
-COPY --from=builder-production /app/next.config.js ./
+# You only need to copy next.config.ts if you are NOT using the default configuration
+COPY --from=builder-production /app/next.config.ts ./
 COPY --from=builder-production /app/public ./public
 COPY --from=builder-production /app/package.json ./package.json
 
