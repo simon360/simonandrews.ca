@@ -45,3 +45,6 @@ terraform/terraform.tfvars
 
 # Typescript
 tsconfig.tsbuildinfo
+
+# Storybook
+/storybook-static
