@@ -7,3 +7,5 @@ project_id = "simonandrews-ca-terraform"
 # github_owner    = "simon360"
 # github_repo     = "simonandrews.ca"
 # repository_name = "simonandrews-ca"
+
+cloudflare_api_token = "your-cloudflare-api-token"

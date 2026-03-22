@@ -26,3 +26,10 @@ variable "repository_name" {
   type        = string
   default     = "simonandrews-ca"
 }
+
+variable "cloudflare_api_token" {
+  description = "Cloudflare API token (DNS Edit + Zone Read permissions for simonandrews.ca)"
+  type        = string
+  sensitive   = true
+}
+
