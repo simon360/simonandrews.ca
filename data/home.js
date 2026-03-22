@@ -46,8 +46,12 @@ const home = {
       logo: { type: "component", component: HubbleHQ },
       positions: [
         {
+          title: "VP Engineering",
+          time: "September 2023 - January 2025",
+        },
+        {
           title: "Head of Engineering",
-          time: "July 2021 - January 2025",
+          time: "July 2021 - September 2023",
         },
         {
           title: "Engineering Manager",
