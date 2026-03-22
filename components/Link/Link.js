@@ -8,9 +8,8 @@ export default function Link({
 }) {
   if (href && href.startsWith("/")) {
     return (
-      <NextLink href={href}>
-        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <Component {...props}>{children}</Component>
+      <NextLink href={href} {...props}>
+        {children}
       </NextLink>
     )
   }
