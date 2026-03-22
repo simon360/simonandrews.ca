@@ -71,8 +71,7 @@ resource "google_compute_backend_service" "main" {
     group = google_compute_region_network_endpoint_group.cloud_run.id
   }
 
-  # Cloud Armor policy is attached here in Stage 3.
-  # security_policy = google_compute_security_policy.cloudflare_only.id
+  security_policy = google_compute_security_policy.cloudflare_only.id
 }
 
 # ── HTTPS URL map + proxy + forwarding rule ───────────────────────────────────
