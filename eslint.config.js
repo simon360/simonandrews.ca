@@ -9,7 +9,7 @@ module.exports = [
   { ignores: [".next/**"] },
   ...compat.extends("next/core-web-vitals"),
   {
-    files: ["**/*.stories.js"],
+    files: ["**/*.stories.tsx"],
     rules: {
       "import/no-anonymous-default-export": "off",
       "react/no-unescaped-entities": "off",
