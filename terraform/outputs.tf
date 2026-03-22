@@ -1,3 +1,8 @@
+output "cloudflare_nameservers" {
+  description = "Cloudflare nameservers — point your registrar to these"
+  value       = data.cloudflare_zone.main.name_servers
+}
+
 output "cloud_run_url" {
   description = "Public URL of the Cloud Run service"
   value       = google_cloud_run_v2_service.main.uri
