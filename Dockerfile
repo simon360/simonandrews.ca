@@ -27,6 +27,27 @@ ENV PORT 3000
 
 CMD ["npm", "run", "dev"]
 
+# ── Storybook ────────────────────────────────────────────────────────────────
+
+FROM base AS storybook-dev
+ENV NODE_ENV development
+COPY --from=deps-dev /app/node_modules ./node_modules
+COPY . .
+EXPOSE 3003
+CMD ["npx", "storybook", "dev", "--port", "3003", "--no-open"]
+
+FROM base AS storybook-builder
+COPY --from=deps-dev /app/node_modules ./node_modules
+COPY . .
+RUN npm run build-storybook
+
+FROM nginx:stable-alpine AS storybook
+COPY docker/storybook-nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=storybook-builder /app/storybook-static /usr/share/nginx/html
+EXPOSE 8080
+
+# ── Next.js production ───────────────────────────────────────────────────────
+
 FROM base AS builder-production
 COPY --from=deps-production /app/node_modules ./node_modules
 COPY . .
