@@ -28,3 +28,15 @@ services:
       - 3000:3000
     profiles:
       - production
+
+  storybook:
+    build:
+      context: .
+      target: storybook-dev
+    volumes:
+      - .:/app:delegated
+      - /app/node_modules/
+    ports:
+      - 3003:3003
+    profiles:
+      - storybook
