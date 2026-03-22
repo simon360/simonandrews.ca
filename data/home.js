@@ -1,6 +1,7 @@
 import Celtx from "@/images/logo-celtx.svg"
 import EffortlessAdmin from "@/images/logo-effortless-admin.svg"
 import HubbleHQ from "@/images/logo-hubblehq.svg"
+import Yardi from "@/images/logo-yardi.svg"
 import Neowin from "@/images/logo-neowin.svg"
 import OlympiaTrustCompany from "@/images/logo-olympia-trust-company.svg"
 import ThomsonReuters from "@/images/logo-thomson-reuters.svg"
@@ -24,6 +25,20 @@ const home = {
   ],
   work: [
     {
+      company: "Yardi",
+      brandColor: "#0072ce",
+      href: "https://yardi.com",
+      isFocus: true,
+      logo: { type: "component", component: Yardi },
+      note: "Acquired HubbleHQ in January 2025",
+      positions: [
+        {
+          title: "Senior Technical Project Leader",
+          time: "January 2025 - Current",
+        },
+      ],
+    },
+    {
       company: "HubbleHQ",
       brandColor: "#FF377A",
       href: "https://hubblehq.com",
@@ -32,7 +47,7 @@ const home = {
       positions: [
         {
           title: "Head of Engineering",
-          time: "July 2021 - Current",
+          time: "July 2021 - January 2025",
         },
         {
           title: "Engineering Manager",
