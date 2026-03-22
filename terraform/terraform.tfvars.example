@@ -1,0 +1,9 @@
+# Copy this file to terraform.tfvars and fill in your values.
+
+project_id = "simonandrews-ca-terraform"
+
+# Defaults shown — override only if you need different values:
+# region          = "europe-west1"
+# github_owner    = "simon360"
+# github_repo     = "simonandrews.ca"
+# repository_name = "simonandrews-ca"
