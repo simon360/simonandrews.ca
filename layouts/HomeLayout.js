@@ -1,3 +1,5 @@
+"use client"
+
 import { MDXProvider } from "@mdx-js/react"
 import React from "react"
 import PropTypes from "prop-types"
@@ -9,7 +11,6 @@ import Link from "@/components/Link"
 import Paragraph from "@/components/Paragraph"
 import Section from "@/components/Section"
 import Surface from "@/components/Surface"
-import Seo from "@/components/Seo"
 
 import site from "@/data/site"
 
@@ -24,10 +25,9 @@ const components = {
   p: Paragraph,
 }
 
-const Layout = ({ children, heroContent, meta }) => {
+const Layout = ({ children, heroContent }) => {
   return (
     <MDXProvider components={components}>
-      <Seo meta={meta} />
       <div className={wrapper} id="top">
         <Surface backgroundColorType="muted">
           <Header
