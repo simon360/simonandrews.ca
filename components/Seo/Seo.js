@@ -13,7 +13,7 @@ export default function Seo({ meta: passedMeta }) {
 
   return (
     <Head>
-      <title>{meta.title} | Simon Andrews</title>
+      <title>{`${meta.title} | Simon Andrews`}</title>
 
       <meta name="description" content={meta.description} />
 
