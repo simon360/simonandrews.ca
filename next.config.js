@@ -4,7 +4,7 @@ const withMDX = require("@next/mdx")({
     remarkPlugins: [require("remark-toc")],
     rehypePlugins: [
       require("rehype-slug").default,
-      require("@mapbox/rehype-prism"),
+      require("rehype-prism-plus").default,
     ],
   },
 })
