@@ -1,9 +1,9 @@
 import Heading from '../Heading'
 import Section from '../Section'
 
-import clouds from '../../images/hero-clouds.jpg'
-import london from '../../images/hero-london-2.jpg'
-import snow from '../../images/hero-snow.jpg'
+import clouds from '@/images/hero-clouds.jpg'
+import london from '@/images/hero-london-2.jpg'
+import snow from '@/images/hero-snow.jpg'
 
 import Hero from '.'
 import VerticalSpacing from '../VerticalSpacing'
@@ -18,7 +18,7 @@ export const Primary = ({ align = 'top' }: { align?: string }) => (
     background={
       <img
         alt=""
-        src={london}
+        src={london.src}
         style={{
           height: '100%',
           objectFit: 'cover',
@@ -47,7 +47,7 @@ export const LightBackground = () => (
     background={
       <img
         alt=""
-        src={clouds}
+        src={clouds.src}
         style={{
           height: '100%',
           objectFit: 'cover',
@@ -77,7 +77,7 @@ export const LongContent = () => (
     background={
       <img
         alt=""
-        src={snow}
+        src={snow.src}
         style={{
           height: '100%',
           objectFit: 'cover',

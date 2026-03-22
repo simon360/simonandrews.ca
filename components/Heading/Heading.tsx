@@ -1,5 +1,5 @@
 import classnames from 'class-names'
-import type { ReactNode } from 'react'
+import type { ReactElement, ReactNode } from 'react'
 
 import styles from './Heading.module.css'
 
@@ -17,7 +17,14 @@ interface HeadingProps {
   type?: HeadingType
 }
 
-const Heading = ({
+type HeadingVariants = {
+  H1: (props: HeadingProps) => ReactElement
+  H2: (props: HeadingProps) => ReactElement
+  H3: (props: HeadingProps) => ReactElement
+  H4: (props: HeadingProps) => ReactElement
+}
+
+function HeadingBase({
   children,
   isCentered,
   isMarginWhenAdjacent,
@@ -25,7 +32,7 @@ const Heading = ({
   element = 'h2',
   spaceAfter = 'lg',
   type = 'lg',
-}: HeadingProps) => {
+}: HeadingProps) {
   const Element = element
 
   return (
@@ -47,23 +54,27 @@ const Heading = ({
   )
 }
 
-const headingLevels = {
-  H1: (props: HeadingProps) => <Heading element="h1" type="xl" {...props} />,
-  H2: (props: HeadingProps) => <Heading element="h2" type="lg" {...props} />,
-  H3: (props: HeadingProps) => <Heading element="h3" type="md" {...props} />,
-  H4: (props: HeadingProps) => <Heading element="h4" type="sm" {...props} />,
+const headingLevels: HeadingVariants = {
+  H1: (props: HeadingProps) => <HeadingBase element="h1" type="xl" {...props} />,
+  H2: (props: HeadingProps) => <HeadingBase element="h2" type="lg" {...props} />,
+  H3: (props: HeadingProps) => <HeadingBase element="h3" type="md" {...props} />,
+  H4: (props: HeadingProps) => <HeadingBase element="h4" type="sm" {...props} />,
 }
 
-Heading.Centered = {} as typeof headingLevels
-Heading.MarginWhenAdjacent = {} as typeof headingLevels
-
-Object.entries(headingLevels).forEach(([key, Component]) => {
-  const k = key as keyof typeof headingLevels
-  Heading[k] = Component
-  Heading.Centered[k] = (props: HeadingProps) => <Component isCentered {...props} />
-  Heading.MarginWhenAdjacent[k] = (props: HeadingProps) => (
-    <Component isMarginWhenAdjacent {...props} />
-  )
+const Heading = Object.assign(HeadingBase, {
+  ...headingLevels,
+  Centered: {
+    H1: (props: HeadingProps) => <headingLevels.H1 isCentered {...props} />,
+    H2: (props: HeadingProps) => <headingLevels.H2 isCentered {...props} />,
+    H3: (props: HeadingProps) => <headingLevels.H3 isCentered {...props} />,
+    H4: (props: HeadingProps) => <headingLevels.H4 isCentered {...props} />,
+  } satisfies HeadingVariants,
+  MarginWhenAdjacent: {
+    H1: (props: HeadingProps) => <headingLevels.H1 isMarginWhenAdjacent {...props} />,
+    H2: (props: HeadingProps) => <headingLevels.H2 isMarginWhenAdjacent {...props} />,
+    H3: (props: HeadingProps) => <headingLevels.H3 isMarginWhenAdjacent {...props} />,
+    H4: (props: HeadingProps) => <headingLevels.H4 isMarginWhenAdjacent {...props} />,
+  } satisfies HeadingVariants,
 })
 
 export default Heading
