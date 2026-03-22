@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "format": "prettier --write \"**/*.{css,js,jsx,json,md,mdx}\"",
+    "format": "prettier --write \"**/*.{css,js,jsx,ts,tsx,json,md,mdx}\"",
+    "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "build": "next build && next-sitemap --config next-sitemap.config.js",
     "start": "next start"
@@ -28,8 +29,12 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.5",
     "@svgr/webpack": "^8.1.0",
+    "@types/node": "25.5.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
     "eslint": "^9.39.4",
     "eslint-config-next": "^15.5.14",
-    "prettier": "^3.8.1"
+    "prettier": "^3.8.1",
+    "typescript": "^5.9.3"
   }
 }
