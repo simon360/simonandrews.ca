@@ -6,6 +6,26 @@ data "cloudflare_zone" "main" {
   name = "simonandrews.ca"
 }
 
+# ── Zone security settings ────────────────────────────────────────────────────
+# Full (Strict) SSL verifies the Google-managed cert on the load balancer.
+# HSTS tells browsers to always use HTTPS for this domain.
+
+resource "cloudflare_zone_settings_override" "main" {
+  zone_id = data.cloudflare_zone.main.id
+
+  settings {
+    ssl             = "strict"
+    min_tls_version = "1.2"
+
+    security_header {
+      enabled            = true
+      include_subdomains = true
+      max_age            = 31536000
+      preload            = true
+    }
+  }
+}
+
 # ── Certificate Manager DNS authorisation records ─────────────────────────────
 # These CNAMEs allow Google to validate domain ownership without needing to
 # disable Cloudflare proxying.
