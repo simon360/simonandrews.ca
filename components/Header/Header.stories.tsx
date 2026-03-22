@@ -6,7 +6,7 @@ import Surface from '../Surface'
 import VerticalSpacing from '../VerticalSpacing'
 import type { SiteLink, SocialLink } from '@/data/site'
 
-import snow from '../../images/hero-snow.jpg'
+import snow from '@/images/hero-snow.jpg'
 
 import Header from '.'
 
@@ -101,7 +101,7 @@ export const TransparentInAHero = () => (
     background={
       <img
         alt=""
-        src={snow}
+        src={snow.src}
         style={{
           height: '100%',
           objectFit: 'cover',

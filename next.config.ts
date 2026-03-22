@@ -1,5 +1,4 @@
 import type { NextConfig } from 'next'
-import type { Configuration } from 'webpack'
 import createMDX from '@next/mdx'
 import remarkToc from 'remark-toc'
 import rehypeSlug from 'rehype-slug'
@@ -17,7 +16,7 @@ const withMDX = createMDX({
 const nextConfig: NextConfig = {
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
   output: 'standalone',
-  webpack(config: Configuration) {
+  webpack(config) {
     config.module?.rules?.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],
