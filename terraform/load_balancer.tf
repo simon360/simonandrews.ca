@@ -79,6 +79,16 @@ resource "google_compute_backend_service" "main" {
 resource "google_compute_url_map" "main" {
   name            = "${var.repository_name}-url-map"
   default_service = google_compute_backend_service.main.id
+
+  host_rule {
+    hosts        = ["components.simonandrews.ca"]
+    path_matcher = "storybook-paths"
+  }
+
+  path_matcher {
+    name            = "storybook-paths"
+    default_service = google_compute_backend_service.storybook.id
+  }
 }
 
 resource "google_compute_target_https_proxy" "main" {

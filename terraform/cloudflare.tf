@@ -21,6 +21,15 @@ resource "cloudflare_record" "cert_auth" {
 
 # ── Web records ───────────────────────────────────────────────────────────────
 
+resource "cloudflare_record" "components" {
+  zone_id = data.cloudflare_zone.main.id
+  name    = "components"
+  type    = "A"
+  content = google_compute_global_address.main.address
+  proxied = true
+  ttl     = 1
+}
+
 resource "cloudflare_record" "apex_a" {
   zone_id = data.cloudflare_zone.main.id
   name    = "@"
