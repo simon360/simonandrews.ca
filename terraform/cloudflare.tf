@@ -6,9 +6,20 @@ data "cloudflare_zone" "main" {
   name = "simonandrews.ca"
 }
 
+# ── Certificate Manager DNS authorisation records ─────────────────────────────
+# These CNAMEs allow Google to validate domain ownership without needing to
+# disable Cloudflare proxying.
+
+resource "cloudflare_record" "cert_auth" {
+  zone_id = data.cloudflare_zone.main.id
+  name    = google_certificate_manager_dns_authorization.main.dns_resource_record[0].name
+  type    = google_certificate_manager_dns_authorization.main.dns_resource_record[0].type
+  content = google_certificate_manager_dns_authorization.main.dns_resource_record[0].data
+  proxied = false
+  ttl     = 900
+}
+
 # ── Web records ───────────────────────────────────────────────────────────────
-# Stage 1: DNS-only (proxied = false), pointing at Vercel.
-# Stage 2: Updated to point at the Cloud Run load balancer with proxied = true.
 
 resource "cloudflare_record" "apex_a" {
   zone_id = data.cloudflare_zone.main.id

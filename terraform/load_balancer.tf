@@ -6,16 +6,46 @@ resource "google_compute_global_address" "main" {
   depends_on = [google_project_service.compute]
 }
 
-# ── Managed SSL certificate ───────────────────────────────────────────────────
+# ── Certificate Manager (DNS-authorised) ─────────────────────────────────────
+# Uses CNAME-based DNS authorisation so the certificate provisions correctly
+# even when Cloudflare proxying is enabled.
 
-resource "google_compute_managed_ssl_certificate" "main" {
+resource "google_certificate_manager_dns_authorization" "main" {
+  name   = "${var.repository_name}-auth"
+  domain = "simonandrews.ca"
+
+  depends_on = [google_project_service.certificatemanager]
+}
+
+resource "google_certificate_manager_certificate" "main" {
   name = "${var.repository_name}-cert"
 
   managed {
-    domains = ["simonandrews.ca", "www.simonandrews.ca"]
+    domains            = ["simonandrews.ca", "*.simonandrews.ca"]
+    dns_authorizations = [google_certificate_manager_dns_authorization.main.id]
   }
 
-  depends_on = [google_project_service.compute]
+  depends_on = [google_project_service.certificatemanager]
+}
+
+resource "google_certificate_manager_certificate_map" "main" {
+  name = "${var.repository_name}-cert-map"
+
+  depends_on = [google_project_service.certificatemanager]
+}
+
+resource "google_certificate_manager_certificate_map_entry" "apex" {
+  name         = "${var.repository_name}-apex"
+  map          = google_certificate_manager_certificate_map.main.name
+  certificates = [google_certificate_manager_certificate.main.id]
+  hostname     = "simonandrews.ca"
+}
+
+resource "google_certificate_manager_certificate_map_entry" "wildcard" {
+  name         = "${var.repository_name}-wildcard"
+  map          = google_certificate_manager_certificate_map.main.name
+  certificates = [google_certificate_manager_certificate.main.id]
+  hostname     = "*.simonandrews.ca"
 }
 
 # ── Serverless NEG (Cloud Run backend) ────────────────────────────────────────
@@ -53,9 +83,9 @@ resource "google_compute_url_map" "main" {
 }
 
 resource "google_compute_target_https_proxy" "main" {
-  name             = "${var.repository_name}-https-proxy"
-  url_map          = google_compute_url_map.main.id
-  ssl_certificates = [google_compute_managed_ssl_certificate.main.id]
+  name            = "${var.repository_name}-https-proxy"
+  url_map         = google_compute_url_map.main.id
+  certificate_map = "//certificatemanager.googleapis.com/${google_certificate_manager_certificate_map.main.id}"
 }
 
 resource "google_compute_global_forwarding_rule" "https" {

@@ -62,3 +62,9 @@ resource "google_project_service" "compute" {
   service            = "compute.googleapis.com"
   disable_on_destroy = false
 }
+
+# Needed for Certificate Manager DNS-authorised certificates.
+resource "google_project_service" "certificatemanager" {
+  service            = "certificatemanager.googleapis.com"
+  disable_on_destroy = false
+}
