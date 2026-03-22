@@ -10,7 +10,7 @@ const heroContent = (
   <Section>
     <VerticalSpacing size="md" />
     <Paragraph isLead>
-      I'm an engineering manager, and a software developer, with a focus on the
+      I’m an engineering manager, and a software developer, with a focus on the
       Web.
     </Paragraph>
     <Paragraph>
@@ -20,7 +20,7 @@ const heroContent = (
       Edmonton, Alberta, before I moved to London, UK, where I remain.
     </Paragraph>
     <Paragraph>
-      I'm passionate about good software, and the people who make it. I'm
+      I’m passionate about good software, and the people who make it. I’m
       grateful that I get to work on one of my hobbies as a career - Iʼve been
       making websites for as long as I can remember. I enjoy sharing knowledge,
       almost as much as I enjoy gaining it. Curiosity is a driving value for me,
