@@ -50,6 +50,7 @@ locals {
     "roles/cloudbuild.integrations.editor",
     "roles/iam.securityAdmin",
     "roles/iam.serviceAccountAdmin",
+    "roles/iam.serviceAccountUser",
     "roles/iam.workloadIdentityPoolAdmin",
     "roles/run.admin",
     "roles/serviceusage.serviceUsageAdmin",
