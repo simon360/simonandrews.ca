@@ -10,6 +10,8 @@ resource "google_cloud_run_v2_service" "main" {
   name     = var.repository_name
   location = var.region
 
+  ingress = "INGRESS_TRAFFIC_INTERNAL_LOAD_BALANCER"
+
   scaling {
     min_instance_count    = 0
     manual_instance_count = 0

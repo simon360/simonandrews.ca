@@ -48,6 +48,8 @@ locals {
     "roles/artifactregistry.admin",
     "roles/cloudbuild.builds.editor",
     "roles/cloudbuild.integrations.editor",
+    "roles/compute.admin",         # Stage 2: manage load balancer resources
+    "roles/compute.securityAdmin", # Stage 3: manage Cloud Armor policies
     "roles/iam.securityAdmin",
     "roles/iam.serviceAccountAdmin",
     "roles/iam.serviceAccountUser",

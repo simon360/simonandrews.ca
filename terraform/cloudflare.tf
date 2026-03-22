@@ -14,18 +14,18 @@ resource "cloudflare_record" "apex_a" {
   zone_id = data.cloudflare_zone.main.id
   name    = "@"
   type    = "A"
-  content = "76.76.21.21" # Vercel
-  proxied = false
-  ttl     = 900
+  content = google_compute_global_address.main.address
+  proxied = true
+  ttl     = 1
 }
 
 resource "cloudflare_record" "www" {
   zone_id = data.cloudflare_zone.main.id
   name    = "www"
   type    = "CNAME"
-  content = "cname.vercel-dns.com" # Vercel
-  proxied = false
-  ttl     = 900
+  content = "simonandrews.ca"
+  proxied = true
+  ttl     = 1
 }
 
 # ── Email records (always DNS-only) ───────────────────────────────────────────
