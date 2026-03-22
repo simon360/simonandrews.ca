@@ -1,25 +1,24 @@
-"use client"
+'use client'
 
-import { MDXProvider } from "@mdx-js/react"
-import React from "react"
-import PropTypes from "prop-types"
+import { MDXProvider } from '@mdx-js/react'
+import type { ReactNode } from 'react'
 
-import Footer from "@/components/Footer"
-import Header from "@/components/Header"
-import Heading from "@/components/Heading"
-import Link from "@/components/Link"
-import List from "@/components/List"
-import Paragraph from "@/components/Paragraph"
-import Section from "@/components/Section"
-import Surface from "@/components/Surface"
+import Footer from '@/components/Footer'
+import Header from '@/components/Header'
+import Heading from '@/components/Heading'
+import Link from '@/components/Link'
+import List from '@/components/List'
+import Paragraph from '@/components/Paragraph'
+import Section from '@/components/Section'
+import Surface from '@/components/Surface'
 
-import site from "@/data/site"
+import site from '@/data/site'
 
-import { content, wrapper } from "./Layout.module.css"
+import styles from './Layout.module.css'
 
 // Support syntax highlighting on articles
 // Markup is added by rehype-prism, this is just the CSS
-import "prismjs/themes/prism-tomorrow.css"
+import 'prismjs/themes/prism-tomorrow.css'
 
 const components = {
   a: Link,
@@ -33,10 +32,15 @@ const components = {
   ul: List.Ul,
 }
 
-const Layout = ({ children, heroContent }) => {
+interface Props {
+  children: ReactNode
+  heroContent?: ReactNode
+}
+
+const Layout = ({ children, heroContent }: Props) => {
   return (
     <MDXProvider components={components}>
-      <div className={wrapper} id="top">
+      <div className={styles.wrapper} id="top">
         <Surface backgroundColorType="muted">
           <Header
             siteTitle={site.title}
@@ -46,14 +50,14 @@ const Layout = ({ children, heroContent }) => {
           {heroContent}
         </Surface>
 
-        <main className={content}>
+        <main className={styles.content}>
           <Section verticalPadding="xxl">{children}</Section>
         </main>
 
         <Footer
           contactInfo={
             <Paragraph>
-              You can get in touch with me at{" "}
+              You can get in touch with me at{' '}
               <a href="mailto:hello@sadl.io">hello@sadl.io</a>, or via my social
               media profiles. I am not currently looking for new work.
             </Paragraph>
@@ -63,10 +67,6 @@ const Layout = ({ children, heroContent }) => {
       </div>
     </MDXProvider>
   )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 }
 
 export default Layout
