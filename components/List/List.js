@@ -10,6 +10,10 @@ export function Item({ children }) {
   return <li className={itemWrapper}>{children}</li>
 }
 
-List.Ul = (props) => <List element="ul" {...props} />
-List.Ol = (props) => <List element="ol" {...props} />
+List.Ul = function ListUl(props) {
+  return <List element="ul" {...props} />
+}
+List.Ol = function ListOl(props) {
+  return <List element="ol" {...props} />
+}
 List.Item = Item
