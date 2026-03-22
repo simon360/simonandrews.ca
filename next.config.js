@@ -11,10 +11,6 @@ const withMDX = require("@next/mdx")({
 })
 
 module.exports = withMDX({
-  i18n: {
-    defaultLocale: "en-GB",
-    locales: ["en", "en-CA", "en-GB", "en-US"],
-  },
   pageExtensions: ["js", "jsx", "mdx"],
   output: "standalone",
   webpack(config) {
