@@ -1,9 +1,9 @@
-import Section from '../Section'
+import Section from "../Section"
 
-import Skills from '.'
+import Skills from "."
 
 export default {
-  title: 'Components|Skills',
+  title: "Components|Skills",
 }
 
 export const Primary = () => (

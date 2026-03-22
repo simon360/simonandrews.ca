@@ -1,6 +1,6 @@
-import classnames from 'class-names'
+import classnames from "class-names"
 
-import styles from './Logo.module.css'
+import styles from "./Logo.module.css"
 
 interface Props {
   className?: string
@@ -8,7 +8,7 @@ interface Props {
 }
 
 export default function Logo({
-  className = '',
+  className = "",
   isTextMatched: isTextMatchedProp = false,
 }: Props) {
   return (

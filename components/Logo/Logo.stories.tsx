@@ -1,18 +1,18 @@
-import Heading from '../Heading'
-import Section from '../Section'
-import Surface from '../Surface'
-import TextWithIcon from '../TextWithIcon'
-import VerticalSpacing from '../VerticalSpacing'
-import type { SVGProps } from 'react'
+import Heading from "../Heading"
+import Section from "../Section"
+import Surface from "../Surface"
+import TextWithIcon from "../TextWithIcon"
+import VerticalSpacing from "../VerticalSpacing"
+import type { SVGProps } from "react"
 
-import Logo from '.'
+import Logo from "."
 
 export default {
-  title: 'Components|Logo',
+  title: "Components|Logo",
 }
 
 export const Primary = () => (
-  <div style={{ margin: '0 auto', maxWidth: '32rem' }}>
+  <div style={{ margin: "0 auto", maxWidth: "32rem" }}>
     <Logo />
   </div>
 )
@@ -26,17 +26,29 @@ export const OnDark = () => (
 const LogoWithText = ({ color }: { color: string }) => (
   <div style={{ color }}>
     <Heading element="h2" type="xl">
-      <TextWithIcon icon={(props: SVGProps<SVGSVGElement>) => <Logo isTextMatched {...props} />}>
+      <TextWithIcon
+        icon={(props: SVGProps<SVGSVGElement>) => (
+          <Logo isTextMatched {...props} />
+        )}
+      >
         Simon Andrews
       </TextWithIcon>
     </Heading>
     <Heading element="h2" type="lg">
-      <TextWithIcon icon={(props: SVGProps<SVGSVGElement>) => <Logo isTextMatched {...props} />}>
+      <TextWithIcon
+        icon={(props: SVGProps<SVGSVGElement>) => (
+          <Logo isTextMatched {...props} />
+        )}
+      >
         Simon Andrews
       </TextWithIcon>
     </Heading>
     <Heading element="h2" type="md">
-      <TextWithIcon icon={(props: SVGProps<SVGSVGElement>) => <Logo isTextMatched {...props} />}>
+      <TextWithIcon
+        icon={(props: SVGProps<SVGSVGElement>) => (
+          <Logo isTextMatched {...props} />
+        )}
+      >
         Simon Andrews
       </TextWithIcon>
     </Heading>

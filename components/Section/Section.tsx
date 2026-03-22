@@ -1,8 +1,8 @@
-import type { ReactNode } from 'react'
+import type { ReactNode } from "react"
 
-import styles from './Section.module.css'
+import styles from "./Section.module.css"
 
-type SpacingSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'xxxl' | 'mega'
+type SpacingSize = "xs" | "sm" | "md" | "lg" | "xl" | "xxl" | "xxxl" | "mega"
 
 interface Props {
   children?: ReactNode
@@ -14,9 +14,9 @@ const Section = ({ children, verticalPadding = null }: Props) => (
     className={styles.section}
     style={{
       paddingBottom:
-        (verticalPadding && `var(--space-${verticalPadding})`) || '0rem',
+        (verticalPadding && `var(--space-${verticalPadding})`) || "0rem",
       paddingTop:
-        (verticalPadding && `var(--space-${verticalPadding})`) || '0rem',
+        (verticalPadding && `var(--space-${verticalPadding})`) || "0rem",
     }}
   >
     {children}

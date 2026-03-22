@@ -1,7 +1,7 @@
-import List from '.'
+import List from "."
 
 export default {
-  title: 'Components|List',
+  title: "Components|List",
 }
 
 export const Ordered = () => (

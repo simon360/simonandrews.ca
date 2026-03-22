@@ -1,7 +1,7 @@
-import classnames from 'class-names'
-import type { ReactNode } from 'react'
+import classnames from "class-names"
+import type { ReactNode } from "react"
 
-import styles from './Paragraph.module.css'
+import styles from "./Paragraph.module.css"
 
 interface Props {
   children?: ReactNode

@@ -1,21 +1,30 @@
-import Heading from '../Heading'
-import Paragraph from '../Paragraph'
-import VerticalSpacing from '../VerticalSpacing'
+import Heading from "../Heading"
+import Paragraph from "../Paragraph"
+import VerticalSpacing from "../VerticalSpacing"
 
-import Section from '.'
+import Section from "."
 
 export default {
-  title: 'Components|Section',
+  title: "Components|Section",
 }
 
 const Line = () => (
-  <div style={{ borderBottom: '1px solid var(--color-brand-primary)' }} />
+  <div style={{ borderBottom: "1px solid var(--color-brand-primary)" }} />
 )
 
 export const Primary = ({
   verticalPadding = null,
 }: {
-  verticalPadding?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'xxxl' | 'mega' | null
+  verticalPadding?:
+    | "xs"
+    | "sm"
+    | "md"
+    | "lg"
+    | "xl"
+    | "xxl"
+    | "xxxl"
+    | "mega"
+    | null
 }) => (
   <>
     <Line />

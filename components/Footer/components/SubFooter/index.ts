@@ -1,1 +1,1 @@
-export { default } from './SubFooter'
+export { default } from "./SubFooter"

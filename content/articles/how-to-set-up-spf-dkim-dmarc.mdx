@@ -2,7 +2,10 @@ import Paragraph from "@/components/Paragraph"
 
 # I figured out how DMARC works, and it almost broke me
 
-<Paragraph isLead>How to prevent email spoofing on your domain, using an unholy combination of silly standards.</Paragraph>
+<Paragraph isLead>
+  How to prevent email spoofing on your domain, using an unholy combination of
+  silly standards.
+</Paragraph>
 
 Recently, I encountered a problem. My domain didn't correctly implement SPF, DKIM, or DMARC.
 
@@ -420,5 +423,11 @@ You can take a look through all the changes I've made [on GitHub](https://github
 1. A previous version of this article claimed that Postmark provided an unbiased view on DMARC analysis services, because they did not provide such a service. In fact, they do, called DMARC Digests, which is mentioned in their guide. **Thanks to [max1cc on Hacker News](https://news.ycombinator.com/item?id=28193601) for correcting this.**
 2. The SPF section claims that SPF works on the From header. In fact, it works on the "envelope from", which only exists at the SMTP transport level. Rather than correcting this (I _did_ try, but the section came out too complex), I added an additional section that explains the difference. **Thanks to Liam for reaching out over email and setting me straight.**
 
-<Paragraph><small>Last updated: <time dateTime="2021-08-17T19:10:00.000+0100">17 August 2021, 7:10 PM BST</time></small></Paragraph>
-
+<Paragraph>
+  <small>
+    Last updated:{" "}
+    <time dateTime="2021-08-17T19:10:00.000+0100">
+      17 August 2021, 7:10 PM BST
+    </time>
+  </small>
+</Paragraph>

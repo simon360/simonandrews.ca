@@ -1,11 +1,11 @@
-import { Aperture, ArrowUp, Command } from 'react-feather'
+import { Aperture, ArrowUp, Command } from "react-feather"
 
-import Heading from '../Heading'
+import Heading from "../Heading"
 
-import TextWithIcon from '.'
+import TextWithIcon from "."
 
 export default {
-  title: 'Components|TextWithIcon',
+  title: "Components|TextWithIcon",
 }
 
 export const primary = () => (

@@ -1,28 +1,28 @@
-import Heading from '../Heading'
-import Section from '../Section'
+import Heading from "../Heading"
+import Section from "../Section"
 
-import clouds from '@/images/hero-clouds.jpg'
-import london from '@/images/hero-london-2.jpg'
-import snow from '@/images/hero-snow.jpg'
+import clouds from "@/images/hero-clouds.jpg"
+import london from "@/images/hero-london-2.jpg"
+import snow from "@/images/hero-snow.jpg"
 
-import Hero from '.'
-import VerticalSpacing from '../VerticalSpacing'
-import Paragraph from '../Paragraph'
+import Hero from "."
+import VerticalSpacing from "../VerticalSpacing"
+import Paragraph from "../Paragraph"
 
 export default {
-  title: 'Components|Hero',
+  title: "Components|Hero",
 }
 
-export const Primary = ({ align = 'top' }: { align?: string }) => (
+export const Primary = ({ align = "top" }: { align?: string }) => (
   <Hero
     background={
       <img
         alt=""
         src={london.src}
         style={{
-          height: '100%',
-          objectFit: 'cover',
-          width: '100%',
+          height: "100%",
+          objectFit: "cover",
+          width: "100%",
         }}
       />
     }
@@ -49,17 +49,17 @@ export const LightBackground = () => (
         alt=""
         src={clouds.src}
         style={{
-          height: '100%',
-          objectFit: 'cover',
-          objectPosition: 'center bottom',
-          width: '100%',
+          height: "100%",
+          objectFit: "cover",
+          objectPosition: "center bottom",
+          width: "100%",
         }}
       />
     }
     isLightBackground
   >
     <Section verticalPadding="lg">
-      <div style={{ textAlign: 'right' }}>
+      <div style={{ textAlign: "right" }}>
         <Heading element="h1" type="xl">
           {/* Note the nbsp, to prevent "clouds" from being orphaned  */}
           Reach for the&nbsp;clouds
@@ -79,15 +79,15 @@ export const LongContent = () => (
         alt=""
         src={snow.src}
         style={{
-          height: '100%',
-          objectFit: 'cover',
-          width: '100%',
+          height: "100%",
+          objectFit: "cover",
+          width: "100%",
         }}
       />
     }
   >
     <Section verticalPadding="lg">
-      <article style={{ maxWidth: '24rem', textAlign: 'left' }}>
+      <article style={{ maxWidth: "24rem", textAlign: "left" }}>
         <header>
           <Heading element="h2" type="lg">
             Stopping by Woods on a Snowy Evening
@@ -101,21 +101,21 @@ export const LongContent = () => (
           Whose woods these are I think I know. <br />
           His house is in the village though; <br />
           He will not see me stopping here <br />
-          To watch his woods fill up with snow.{' '}
+          To watch his woods fill up with snow.{" "}
         </Paragraph>
 
         <Paragraph>
           My little horse must think it queer <br />
           To stop without a farmhouse near <br />
           Between the woods and frozen lake <br />
-          The darkest evening of the year.{' '}
+          The darkest evening of the year.{" "}
         </Paragraph>
 
         <Paragraph>
           He gives his harness bells a shake <br />
           To ask if there is some mistake. <br />
           The only other sound's the sweep <br />
-          Of easy wind and downy flake.{' '}
+          Of easy wind and downy flake.{" "}
         </Paragraph>
 
         <Paragraph>

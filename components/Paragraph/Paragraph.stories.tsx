@@ -1,8 +1,8 @@
-import Paragraph from '.'
-import Surface from '../Surface'
+import Paragraph from "."
+import Surface from "../Surface"
 
 export default {
-  title: 'Components|Paragraph',
+  title: "Components|Paragraph",
 }
 
 export const Standard = () => (

@@ -1,13 +1,13 @@
-import type { ReactNode } from 'react'
-import { ArrowUp } from 'react-feather'
+import type { ReactNode } from "react"
+import { ArrowUp } from "react-feather"
 
-import Section from '@/components/Section'
-import Surface from '@/components/Surface'
-import TextWithIcon from '@/components/TextWithIcon'
-import type { SiteLink, SocialLink } from '@/data/site'
+import Section from "@/components/Section"
+import Surface from "@/components/Surface"
+import TextWithIcon from "@/components/TextWithIcon"
+import type { SiteLink, SocialLink } from "@/data/site"
 
-import SubFooter from './components/SubFooter'
-import styles from './Footer.module.css'
+import SubFooter from "./components/SubFooter"
+import styles from "./Footer.module.css"
 
 interface Props {
   contactInfo?: ReactNode

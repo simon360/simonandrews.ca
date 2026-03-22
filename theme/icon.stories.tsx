@@ -1,34 +1,40 @@
-import * as Icons from 'react-feather'
-import type { ReactNode } from 'react'
+import * as Icons from "react-feather"
+import type { ReactNode } from "react"
 
-import Heading from '../components/Heading'
-import Paragraph from '../components/Paragraph'
-import Section from '../components/Section'
-import Surface from '../components/Surface'
-import VerticalSpacing from '../components/VerticalSpacing'
+import Heading from "../components/Heading"
+import Paragraph from "../components/Paragraph"
+import Section from "../components/Section"
+import Surface from "../components/Surface"
+import VerticalSpacing from "../components/VerticalSpacing"
 
 export default {
-  title: 'Theme|Icon',
+  title: "Theme|Icon",
 }
 
 const IconGrid = ({ children }: { children?: ReactNode }) => (
   <div
     style={{
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fill, 10rem)',
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fill, 10rem)",
     }}
   >
     {children}
   </div>
 )
 
-const IconGridItem = ({ children, name }: { children?: ReactNode; name: string }) => (
+const IconGridItem = ({
+  children,
+  name,
+}: {
+  children?: ReactNode
+  name: string
+}) => (
   <div
     style={{
-      alignItems: 'center',
-      display: 'flex',
-      flexDirection: 'column',
-      padding: 'var(--space-md)',
+      alignItems: "center",
+      display: "flex",
+      flexDirection: "column",
+      padding: "var(--space-md)",
     }}
   >
     {children}
@@ -47,11 +53,11 @@ export const Icon = () => (
         <VerticalSpacing size="md" />
 
         <Paragraph>
-          Icons available in the system. Icons come from{' '}
+          Icons available in the system. Icons come from{" "}
           <a href="https://feathericons.com/" target="_blank">
             Feather
           </a>
-          , using{' '}
+          , using{" "}
           <a
             href="https://github.com/feathericons/react-feather"
             target="_blank"

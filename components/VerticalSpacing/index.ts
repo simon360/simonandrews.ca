@@ -1,1 +1,1 @@
-export { default } from './VerticalSpacing'
+export { default } from "./VerticalSpacing"

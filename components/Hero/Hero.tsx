@@ -1,11 +1,11 @@
-import classnames from 'class-names'
-import type { ReactNode } from 'react'
+import classnames from "class-names"
+import type { ReactNode } from "react"
 
-import Surface from '../Surface'
+import Surface from "../Surface"
 
-import styles from './Hero.module.css'
+import styles from "./Hero.module.css"
 
-type HeroAlign = 'bottom' | 'middle'
+type HeroAlign = "bottom" | "middle"
 
 interface Props {
   align?: HeroAlign
@@ -22,11 +22,11 @@ export default function Hero({
   isLightBackground,
 }: Props) {
   return (
-    <Surface {...(isLightBackground ? {} : { foregroundColorType: 'light' })}>
+    <Surface {...(isLightBackground ? {} : { foregroundColorType: "light" })}>
       <div
         className={classnames(styles.wrapper, {
-          [styles.alignBottom]: align === 'bottom',
-          [styles.alignMiddle]: align === 'middle',
+          [styles.alignBottom]: align === "bottom",
+          [styles.alignMiddle]: align === "middle",
         })}
       >
         <div className={styles.imageWrapper}>{background}</div>

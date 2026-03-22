@@ -1,11 +1,11 @@
-import Heading from '../Heading'
-import Paragraph from '../Paragraph'
-import Section from '../Section'
-import Surface from '../Surface'
-import VerticalSpacing from '../VerticalSpacing'
+import Heading from "../Heading"
+import Paragraph from "../Paragraph"
+import Section from "../Section"
+import Surface from "../Surface"
+import VerticalSpacing from "../VerticalSpacing"
 
 export default {
-  title: 'Components|Surface',
+  title: "Components|Surface",
 }
 
 const SurfaceInner = () => (

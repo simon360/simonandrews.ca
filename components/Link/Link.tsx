@@ -1,5 +1,5 @@
-import NextLink from 'next/link'
-import type { AnchorHTMLAttributes, ElementType, ReactNode } from 'react'
+import NextLink from "next/link"
+import type { AnchorHTMLAttributes, ElementType, ReactNode } from "react"
 
 interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
   component?: ElementType
@@ -8,12 +8,12 @@ interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
 }
 
 export default function Link({
-  component: Component = 'a',
+  component: Component = "a",
   href,
   children,
   ...props
 }: Props) {
-  if (href && href.startsWith('/')) {
+  if (href && href.startsWith("/")) {
     return (
       <NextLink href={href} {...props}>
         {children}

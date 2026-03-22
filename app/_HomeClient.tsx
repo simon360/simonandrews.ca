@@ -1,10 +1,10 @@
-'use client'
+"use client"
 
-import HomeLayout from '@/layouts/HomeLayout'
-import HomeContent from '../content/home.mdx'
-import Section from '@/components/Section'
-import VerticalSpacing from '@/components/VerticalSpacing'
-import Paragraph from '@/components/Paragraph'
+import HomeLayout from "@/layouts/HomeLayout"
+import HomeContent from "../content/home.mdx"
+import Section from "@/components/Section"
+import VerticalSpacing from "@/components/VerticalSpacing"
+import Paragraph from "@/components/Paragraph"
 
 const heroContent = (
   <Section>
@@ -40,5 +40,9 @@ const heroContent = (
 )
 
 export default function HomeClient() {
-  return <HomeLayout heroContent={heroContent}><HomeContent /></HomeLayout>
+  return (
+    <HomeLayout heroContent={heroContent}>
+      <HomeContent />
+    </HomeLayout>
+  )
 }

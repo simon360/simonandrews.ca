@@ -1,25 +1,31 @@
-import type { ReactNode } from 'react'
+import type { ReactNode } from "react"
 
-import Heading from '../components/Heading'
-import Paragraph from '../components/Paragraph'
-import Section from '../components/Section'
-import Surface from '../components/Surface'
-import VerticalSpacing from '../components/VerticalSpacing'
+import Heading from "../components/Heading"
+import Paragraph from "../components/Paragraph"
+import Section from "../components/Section"
+import Surface from "../components/Surface"
+import VerticalSpacing from "../components/VerticalSpacing"
 
 export default {
-  title: 'Theme|Space',
+  title: "Theme|Space",
 }
 
-const Size = ({ value, isHorizontal = false }: { value: string; isHorizontal?: boolean }) => (
+const Size = ({
+  value,
+  isHorizontal = false,
+}: {
+  value: string
+  isHorizontal?: boolean
+}) => (
   <>
     <div
       style={{
-        backgroundColor: 'var(--color-brand-primary)',
-        color: 'white',
-        padding: 'var(--space-xs)',
+        backgroundColor: "var(--color-brand-primary)",
+        color: "white",
+        padding: "var(--space-xs)",
         ...(isHorizontal
           ? {
-              width: 'var(--space-lg)',
+              width: "var(--space-lg)",
             }
           : {}),
       }}
@@ -27,7 +33,7 @@ const Size = ({ value, isHorizontal = false }: { value: string; isHorizontal?: b
       {isHorizontal && (
         <div
           style={{
-            transform: 'rotate(90deg)',
+            transform: "rotate(90deg)",
           }}
         >
           <Paragraph>{value}</Paragraph>
@@ -37,9 +43,9 @@ const Size = ({ value, isHorizontal = false }: { value: string; isHorizontal?: b
     </div>
     <div
       style={{
-        backgroundColor: 'var(--color-brand-primary-lightest)',
+        backgroundColor: "var(--color-brand-primary-lightest)",
         flexShrink: 0,
-        [isHorizontal ? 'width' : 'height']: `var(--space-${value})`,
+        [isHorizontal ? "width" : "height"]: `var(--space-${value})`,
       }}
     />
   </>
@@ -48,11 +54,11 @@ const Size = ({ value, isHorizontal = false }: { value: string; isHorizontal?: b
 const VerticalSizeWrapper = ({ children }: { children?: ReactNode }) => (
   <div
     style={{
-      display: 'flex',
-      flexDirection: 'row',
-      maxWidth: 'calc(50vw - 1.5rem)',
-      minHeight: '20rem',
-      overflowX: 'auto',
+      display: "flex",
+      flexDirection: "row",
+      maxWidth: "calc(50vw - 1.5rem)",
+      minHeight: "20rem",
+      overflowX: "auto",
     }}
   >
     {children}
@@ -80,7 +86,7 @@ export const Space = () => (
         </Paragraph>
 
         <Paragraph>
-          This spacing system is loosely based on{' '}
+          This spacing system is loosely based on{" "}
           <a
             href="https://medium.com/eightshapes-llc/space-in-design-systems-188bcbae0d62"
             target="_blank"
@@ -95,9 +101,9 @@ export const Space = () => (
     <Section verticalPadding="md">
       <div
         style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gridColumnGap: 'var(--space-md)',
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gridColumnGap: "var(--space-md)",
         }}
       >
         <div>

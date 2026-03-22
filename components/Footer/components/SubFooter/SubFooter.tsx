@@ -1,25 +1,25 @@
-import type { FC, ReactNode, SVGProps } from 'react'
-import { GitHub, Instagram, Linkedin, Twitter, User } from 'react-feather'
+import type { FC, ReactNode, SVGProps } from "react"
+import { GitHub, Instagram, Linkedin, Twitter, User } from "react-feather"
 
-import Heading from '@/components/Heading'
-import Link from '@/components/Link'
-import Section from '@/components/Section'
-import Surface from '@/components/Surface'
-import TextWithIcon from '@/components/TextWithIcon'
-import VerticalSpacing from '@/components/VerticalSpacing'
-import type { SiteLink, SocialLink, SocialLinkType } from '@/data/site'
+import Heading from "@/components/Heading"
+import Link from "@/components/Link"
+import Section from "@/components/Section"
+import Surface from "@/components/Surface"
+import TextWithIcon from "@/components/TextWithIcon"
+import VerticalSpacing from "@/components/VerticalSpacing"
+import type { SiteLink, SocialLink, SocialLinkType } from "@/data/site"
 
-import styles from './SubFooter.module.css'
+import styles from "./SubFooter.module.css"
 
 function getIconForType(type: SocialLinkType): FC<SVGProps<SVGSVGElement>> {
   switch (type) {
-    case 'github':
+    case "github":
       return GitHub
-    case 'instagram':
+    case "instagram":
       return Instagram
-    case 'linkedin':
+    case "linkedin":
       return Linkedin
-    case 'twitter':
+    case "twitter":
       return Twitter
     default:
       return User
@@ -32,7 +32,11 @@ interface Props {
   socialLinks: SocialLink[]
 }
 
-export default function SubFooter({ contactInfo, siteLinks, socialLinks }: Props) {
+export default function SubFooter({
+  contactInfo,
+  siteLinks,
+  socialLinks,
+}: Props) {
   return (
     <Surface backgroundColorType="muted">
       <Section>
