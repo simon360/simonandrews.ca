@@ -33,3 +33,4 @@ substitutions:
 
 options:
   dynamicSubstitutions: true
+  defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
