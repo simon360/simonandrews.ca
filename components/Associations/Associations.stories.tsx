@@ -67,8 +67,8 @@ export const SingleWithRasterLogo = ({
     logo={{
       type: "img",
       imgAttributes: {
-        alt: "Logo for A Space Company",
-        src: "/images/gatsby-astronaut.png",
+        alt: "Olympia Trust Company logo",
+        src: "/images/logo-olympia-trust-company.png",
       },
     }}
   />
