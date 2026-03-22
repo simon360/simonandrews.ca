@@ -11,7 +11,7 @@ RUN npm install
 
 FROM base AS deps-production
 COPY package.json package-lock.json ./
-RUN npm install --omit=dev
+RUN npm install
 
 FROM base AS dev
 
