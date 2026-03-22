@@ -8,7 +8,9 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "build": "next build && next-sitemap --config next-sitemap.config.js",
-    "start": "next start"
+    "start": "next start",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",
@@ -28,6 +30,9 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.5",
+    "@storybook/addon-essentials": "^8.0.0",
+    "@storybook/nextjs": "^8.0.0",
+    "@storybook/react": "^8.0.0",
     "@svgr/webpack": "^8.1.0",
     "@types/node": "25.5.0",
     "@types/react": "^19.2.14",
@@ -35,6 +40,7 @@
     "eslint": "^9.39.4",
     "eslint-config-next": "^15.5.14",
     "prettier": "^3.8.1",
+    "storybook": "^8.0.0",
     "typescript": "^5.9.3"
   }
 }
