@@ -270,6 +270,15 @@ resource "cloudflare_record" "simon360_atproto" {
 
 # ── simonster.net ─────────────────────────────────────────────────────────────
 
+resource "cloudflare_record" "simonster_cert_auth" {
+  zone_id = data.cloudflare_zone.simonster.id
+  name    = google_certificate_manager_dns_authorization.simonster.dns_resource_record[0].name
+  type    = google_certificate_manager_dns_authorization.simonster.dns_resource_record[0].type
+  content = google_certificate_manager_dns_authorization.simonster.dns_resource_record[0].data
+  proxied = false
+  ttl     = 900
+}
+
 # Phase 1: DNS records migrated exactly from Hover. Web records are DNS-only
 # (proxied = false) while they still point to Vercel.
 

@@ -82,6 +82,40 @@ resource "google_certificate_manager_certificate_map_entry" "simon360_wildcard" 
   hostname     = "*.simon360.com"
 }
 
+# ── simonster.net certificate (DNS-authorised) ────────────────────────────────
+
+resource "google_certificate_manager_dns_authorization" "simonster" {
+  name   = "${var.repository_name}-simonster-auth"
+  domain = "simonster.net"
+
+  depends_on = [google_project_service.certificatemanager]
+}
+
+resource "google_certificate_manager_certificate" "simonster" {
+  name = "${var.repository_name}-simonster-cert"
+
+  managed {
+    domains            = ["simonster.net", "*.simonster.net"]
+    dns_authorizations = [google_certificate_manager_dns_authorization.simonster.id]
+  }
+
+  depends_on = [google_project_service.certificatemanager]
+}
+
+resource "google_certificate_manager_certificate_map_entry" "simonster_apex" {
+  name         = "${var.repository_name}-simonster-apex"
+  map          = google_certificate_manager_certificate_map.main.name
+  certificates = [google_certificate_manager_certificate.simonster.id]
+  hostname     = "simonster.net"
+}
+
+resource "google_certificate_manager_certificate_map_entry" "simonster_wildcard" {
+  name         = "${var.repository_name}-simonster-wildcard"
+  map          = google_certificate_manager_certificate_map.main.name
+  certificates = [google_certificate_manager_certificate.simonster.id]
+  hostname     = "*.simonster.net"
+}
+
 
 # ── Serverless NEG (Cloud Run backend) ────────────────────────────────────────
 
