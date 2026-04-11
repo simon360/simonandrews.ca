@@ -1,11 +1,16 @@
 steps:
   - id: "Build image"
-    name: "gcr.io/kaniko-project/executor:latest"
+    name: "gcr.io/cloud-builders/docker"
     args:
-      - --destination=${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY_NAME}/${_SERVICE_NAME}
-      - --cache=true
-    env:
-      - "DOCKER_BUILDKIT=1"
+      - build
+      - --tag=${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY_NAME}/${_SERVICE_NAME}:latest
+      - .
+
+  - id: "Push image"
+    name: "gcr.io/cloud-builders/docker"
+    args:
+      - push
+      - ${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY_NAME}/${_SERVICE_NAME}:latest
 
   - id: "Create Cloud Run revision"
     name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
@@ -20,7 +25,7 @@ steps:
         "--region",
         "${_REGION}",
         "--image",
-        "${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY_NAME}/${_SERVICE_NAME}",
+        "${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY_NAME}/${_SERVICE_NAME}:latest",
       ]
 
   # Force the new revision to serve 100% of traffic.
