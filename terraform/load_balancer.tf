@@ -82,6 +82,7 @@ resource "google_certificate_manager_certificate_map_entry" "simon360_wildcard" 
   hostname     = "*.simon360.com"
 }
 
+
 # ── Serverless NEG (Cloud Run backend) ────────────────────────────────────────
 
 resource "google_compute_region_network_endpoint_group" "cloud_run" {
@@ -124,6 +125,7 @@ resource "google_compute_url_map" "main" {
     path_matcher = "simon360-redirect"
   }
 
+
   path_matcher {
     name            = "storybook-paths"
     default_service = google_compute_backend_service.storybook.id
@@ -138,6 +140,7 @@ resource "google_compute_url_map" "main" {
       strip_query            = false
     }
   }
+
 }
 
 resource "google_compute_target_https_proxy" "main" {
