@@ -14,6 +14,10 @@ data "cloudflare_zone" "simonster" {
   name = "simonster.net"
 }
 
+data "cloudflare_zone" "sadlio" {
+  name = "sadl.io"
+}
+
 # ── Certificate Manager DNS authorisation records ─────────────────────────────
 # These CNAMEs allow Google to validate domain ownership without needing to
 # disable Cloudflare proxying.
@@ -359,6 +363,99 @@ resource "cloudflare_record" "simonster_dkim_fm3" {
   name    = "fm3._domainkey"
   type    = "CNAME"
   content = "fm3.simonster.net.dkim.fmhosted.com"
+  proxied = false
+  ttl     = 900
+}
+
+# ── sadl.io ───────────────────────────────────────────────────────────────────
+# New domain — all records point straight to the GCP load balancer from day one.
+
+resource "cloudflare_record" "sadlio_cert_auth" {
+  zone_id = data.cloudflare_zone.sadlio.id
+  name    = google_certificate_manager_dns_authorization.sadlio.dns_resource_record[0].name
+  type    = google_certificate_manager_dns_authorization.sadlio.dns_resource_record[0].type
+  content = google_certificate_manager_dns_authorization.sadlio.dns_resource_record[0].data
+  proxied = false
+  ttl     = 900
+}
+
+resource "cloudflare_record" "sadlio_apex_a" {
+  zone_id = data.cloudflare_zone.sadlio.id
+  name    = "@"
+  type    = "A"
+  content = google_compute_global_address.main.address
+  proxied = true
+  ttl     = 1
+}
+
+resource "cloudflare_record" "sadlio_www" {
+  zone_id = data.cloudflare_zone.sadlio.id
+  name    = "www"
+  type    = "CNAME"
+  content = "sadl.io"
+  proxied = true
+  ttl     = 1
+}
+
+# ── sadl.io email records ─────────────────────────────────────────────────────
+
+resource "cloudflare_record" "sadlio_mx_1" {
+  zone_id  = data.cloudflare_zone.sadlio.id
+  name     = "@"
+  type     = "MX"
+  content  = "in1-smtp.messagingengine.com"
+  priority = 10
+  ttl      = 900
+}
+
+resource "cloudflare_record" "sadlio_mx_2" {
+  zone_id  = data.cloudflare_zone.sadlio.id
+  name     = "@"
+  type     = "MX"
+  content  = "in2-smtp.messagingengine.com"
+  priority = 20
+  ttl      = 900
+}
+
+resource "cloudflare_record" "sadlio_spf" {
+  zone_id = data.cloudflare_zone.sadlio.id
+  name    = "@"
+  type    = "TXT"
+  content = "v=spf1 include:spf.messagingengine.com -all"
+  ttl     = 900
+}
+
+resource "cloudflare_record" "sadlio_dmarc" {
+  zone_id = data.cloudflare_zone.sadlio.id
+  name    = "_dmarc"
+  type    = "TXT"
+  content = "v=DMARC1; p=none; pct=100; sp=none; aspf=r;"
+  ttl     = 900
+}
+
+resource "cloudflare_record" "sadlio_dkim_fm1" {
+  zone_id = data.cloudflare_zone.sadlio.id
+  name    = "fm1._domainkey"
+  type    = "CNAME"
+  content = "fm1.sadl.io.dkim.fmhosted.com"
+  proxied = false
+  ttl     = 900
+}
+
+resource "cloudflare_record" "sadlio_dkim_fm2" {
+  zone_id = data.cloudflare_zone.sadlio.id
+  name    = "fm2._domainkey"
+  type    = "CNAME"
+  content = "fm2.sadl.io.dkim.fmhosted.com"
+  proxied = false
+  ttl     = 900
+}
+
+resource "cloudflare_record" "sadlio_dkim_fm3" {
+  zone_id = data.cloudflare_zone.sadlio.id
+  name    = "fm3._domainkey"
+  type    = "CNAME"
+  content = "fm3.sadl.io.dkim.fmhosted.com"
   proxied = false
   ttl     = 900
 }

@@ -116,6 +116,40 @@ resource "google_certificate_manager_certificate_map_entry" "simonster_wildcard"
   hostname     = "*.simonster.net"
 }
 
+# ── sadl.io certificate (DNS-authorised) ──────────────────────────────────────
+
+resource "google_certificate_manager_dns_authorization" "sadlio" {
+  name   = "${var.repository_name}-sadlio-auth"
+  domain = "sadl.io"
+
+  depends_on = [google_project_service.certificatemanager]
+}
+
+resource "google_certificate_manager_certificate" "sadlio" {
+  name = "${var.repository_name}-sadlio-cert"
+
+  managed {
+    domains            = ["sadl.io", "*.sadl.io"]
+    dns_authorizations = [google_certificate_manager_dns_authorization.sadlio.id]
+  }
+
+  depends_on = [google_project_service.certificatemanager]
+}
+
+resource "google_certificate_manager_certificate_map_entry" "sadlio_apex" {
+  name         = "${var.repository_name}-sadlio-apex"
+  map          = google_certificate_manager_certificate_map.main.name
+  certificates = [google_certificate_manager_certificate.sadlio.id]
+  hostname     = "sadl.io"
+}
+
+resource "google_certificate_manager_certificate_map_entry" "sadlio_wildcard" {
+  name         = "${var.repository_name}-sadlio-wildcard"
+  map          = google_certificate_manager_certificate_map.main.name
+  certificates = [google_certificate_manager_certificate.sadlio.id]
+  hostname     = "*.sadl.io"
+}
+
 
 # ── Serverless NEG (Cloud Run backend) ────────────────────────────────────────
 
@@ -182,6 +216,21 @@ resource "google_compute_url_map" "main" {
 
   path_matcher {
     name = "simonster-redirect"
+
+    default_url_redirect {
+      host_redirect          = "simonandrews.ca"
+      redirect_response_code = "MOVED_PERMANENTLY_DEFAULT"
+      strip_query            = false
+    }
+  }
+
+  host_rule {
+    hosts        = ["sadl.io", "www.sadl.io"]
+    path_matcher = "sadlio-redirect"
+  }
+
+  path_matcher {
+    name = "sadlio-redirect"
 
     default_url_redirect {
       host_redirect          = "simonandrews.ca"
