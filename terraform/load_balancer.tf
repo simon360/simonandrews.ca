@@ -48,6 +48,40 @@ resource "google_certificate_manager_certificate_map_entry" "wildcard" {
   hostname     = "*.simonandrews.ca"
 }
 
+# ── simon360.com certificate (DNS-authorised) ─────────────────────────────────
+
+resource "google_certificate_manager_dns_authorization" "simon360" {
+  name   = "${var.repository_name}-simon360-auth"
+  domain = "simon360.com"
+
+  depends_on = [google_project_service.certificatemanager]
+}
+
+resource "google_certificate_manager_certificate" "simon360" {
+  name = "${var.repository_name}-simon360-cert"
+
+  managed {
+    domains            = ["simon360.com", "*.simon360.com"]
+    dns_authorizations = [google_certificate_manager_dns_authorization.simon360.id]
+  }
+
+  depends_on = [google_project_service.certificatemanager]
+}
+
+resource "google_certificate_manager_certificate_map_entry" "simon360_apex" {
+  name         = "${var.repository_name}-simon360-apex"
+  map          = google_certificate_manager_certificate_map.main.name
+  certificates = [google_certificate_manager_certificate.simon360.id]
+  hostname     = "simon360.com"
+}
+
+resource "google_certificate_manager_certificate_map_entry" "simon360_wildcard" {
+  name         = "${var.repository_name}-simon360-wildcard"
+  map          = google_certificate_manager_certificate_map.main.name
+  certificates = [google_certificate_manager_certificate.simon360.id]
+  hostname     = "*.simon360.com"
+}
+
 # ── Serverless NEG (Cloud Run backend) ────────────────────────────────────────
 
 resource "google_compute_region_network_endpoint_group" "cloud_run" {
