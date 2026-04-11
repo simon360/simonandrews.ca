@@ -160,6 +160,16 @@ resource "cloudflare_record" "dkim_fm3" {
 }
 
 # ── simon360.com ──────────────────────────────────────────────────────────────
+
+resource "cloudflare_record" "simon360_cert_auth" {
+  zone_id = data.cloudflare_zone.simon360.id
+  name    = google_certificate_manager_dns_authorization.simon360.dns_resource_record[0].name
+  type    = google_certificate_manager_dns_authorization.simon360.dns_resource_record[0].type
+  content = google_certificate_manager_dns_authorization.simon360.dns_resource_record[0].data
+  proxied = false
+  ttl     = 900
+}
+
 # Phase 1: DNS records migrated exactly from Hover. Web records are DNS-only
 # (proxied = false) while they still point to Vercel.
 
