@@ -175,6 +175,21 @@ resource "google_compute_url_map" "main" {
     }
   }
 
+  host_rule {
+    hosts        = ["simonster.net", "www.simonster.net"]
+    path_matcher = "simonster-redirect"
+  }
+
+  path_matcher {
+    name = "simonster-redirect"
+
+    default_url_redirect {
+      host_redirect          = "simonandrews.ca"
+      redirect_response_code = "MOVED_PERMANENTLY_DEFAULT"
+      strip_query            = false
+    }
+  }
+
 }
 
 resource "google_compute_target_https_proxy" "main" {

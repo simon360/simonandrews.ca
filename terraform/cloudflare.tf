@@ -279,25 +279,25 @@ resource "cloudflare_record" "simonster_cert_auth" {
   ttl     = 900
 }
 
-# Phase 1: DNS records migrated exactly from Hover. Web records are DNS-only
-# (proxied = false) while they still point to Vercel.
+# Web records point to the GCP load balancer, which redirects all traffic to
+# simonandrews.ca.
 
 resource "cloudflare_record" "simonster_apex_a" {
   zone_id = data.cloudflare_zone.simonster.id
   name    = "@"
   type    = "A"
-  content = "76.76.21.21"
-  proxied = false
-  ttl     = 300
+  content = google_compute_global_address.main.address
+  proxied = true
+  ttl     = 1
 }
 
 resource "cloudflare_record" "simonster_www" {
   zone_id = data.cloudflare_zone.simonster.id
   name    = "www"
   type    = "CNAME"
-  content = "cname.vercel-dns.com"
-  proxied = false
-  ttl     = 300
+  content = "simonster.net"
+  proxied = true
+  ttl     = 1
 }
 
 # ── simonster.net email records ───────────────────────────────────────────────
