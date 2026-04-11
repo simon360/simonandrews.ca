@@ -10,6 +10,10 @@ data "cloudflare_zone" "simon360" {
   name = "simon360.com"
 }
 
+data "cloudflare_zone" "simonster" {
+  name = "simonster.net"
+}
+
 # ── Certificate Manager DNS authorisation records ─────────────────────────────
 # These CNAMEs allow Google to validate domain ownership without needing to
 # disable Cloudflare proxying.
@@ -261,5 +265,91 @@ resource "cloudflare_record" "simon360_atproto" {
   name    = "_atproto"
   type    = "TXT"
   content = "did=did:plc:d7kipkqscf4cnprdnb6ckksf"
+  ttl     = 900
+}
+
+# ── simonster.net ─────────────────────────────────────────────────────────────
+
+# Phase 1: DNS records migrated exactly from Hover. Web records are DNS-only
+# (proxied = false) while they still point to Vercel.
+
+resource "cloudflare_record" "simonster_apex_a" {
+  zone_id = data.cloudflare_zone.simonster.id
+  name    = "@"
+  type    = "A"
+  content = "76.76.21.21"
+  proxied = false
+  ttl     = 300
+}
+
+resource "cloudflare_record" "simonster_www" {
+  zone_id = data.cloudflare_zone.simonster.id
+  name    = "www"
+  type    = "CNAME"
+  content = "cname.vercel-dns.com"
+  proxied = false
+  ttl     = 300
+}
+
+# ── simonster.net email records ───────────────────────────────────────────────
+
+resource "cloudflare_record" "simonster_mx_1" {
+  zone_id  = data.cloudflare_zone.simonster.id
+  name     = "@"
+  type     = "MX"
+  content  = "in1-smtp.messagingengine.com"
+  priority = 10
+  ttl      = 900
+}
+
+resource "cloudflare_record" "simonster_mx_2" {
+  zone_id  = data.cloudflare_zone.simonster.id
+  name     = "@"
+  type     = "MX"
+  content  = "in2-smtp.messagingengine.com"
+  priority = 20
+  ttl      = 900
+}
+
+resource "cloudflare_record" "simonster_spf" {
+  zone_id = data.cloudflare_zone.simonster.id
+  name    = "@"
+  type    = "TXT"
+  content = "v=spf1 include:spf.messagingengine.com -all"
+  ttl     = 900
+}
+
+resource "cloudflare_record" "simonster_dmarc" {
+  zone_id = data.cloudflare_zone.simonster.id
+  name    = "_dmarc"
+  type    = "TXT"
+  content = "v=DMARC1; p=none; pct=100; rua=mailto:re+zrmvwfsciej@dmarc.postmarkapp.com; sp=none; aspf=r;"
+  ttl     = 900
+}
+
+resource "cloudflare_record" "simonster_dkim_fm1" {
+  zone_id = data.cloudflare_zone.simonster.id
+  name    = "fm1._domainkey"
+  type    = "CNAME"
+  content = "fm1.simonster.net.dkim.fmhosted.com"
+  proxied = false
+  ttl     = 900
+}
+
+resource "cloudflare_record" "simonster_dkim_fm2" {
+  zone_id = data.cloudflare_zone.simonster.id
+  name    = "fm2._domainkey"
+  type    = "CNAME"
+  content = "fm2.simonster.net.dkim.fmhosted.com"
+  proxied = false
+  ttl     = 900
+}
+
+resource "cloudflare_record" "simonster_dkim_fm3" {
+  zone_id = data.cloudflare_zone.simonster.id
+  name    = "fm3._domainkey"
+  type    = "CNAME"
+  content = "fm3.simonster.net.dkim.fmhosted.com"
+  proxied = false
   ttl     = 900
 }
