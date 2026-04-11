@@ -119,9 +119,24 @@ resource "google_compute_url_map" "main" {
     path_matcher = "storybook-paths"
   }
 
+  host_rule {
+    hosts        = ["simon360.com", "www.simon360.com"]
+    path_matcher = "simon360-redirect"
+  }
+
   path_matcher {
     name            = "storybook-paths"
     default_service = google_compute_backend_service.storybook.id
+  }
+
+  path_matcher {
+    name = "simon360-redirect"
+
+    default_url_redirect {
+      host_redirect          = "simonandrews.ca"
+      redirect_response_code = "MOVED_PERMANENTLY_DEFAULT"
+      strip_query            = false
+    }
   }
 }
 
