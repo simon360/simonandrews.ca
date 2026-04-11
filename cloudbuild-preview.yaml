@@ -1,11 +1,16 @@
 steps:
   - id: "Build image"
-    name: "gcr.io/kaniko-project/executor:latest"
+    name: "gcr.io/cloud-builders/docker"
     args:
-      - --destination=${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY_NAME}/${_SERVICE_NAME}:${_PR_NUMBER}-${SHORT_SHA}
-      - --cache=true
-    env:
-      - "DOCKER_BUILDKIT=1"
+      - build
+      - --tag=${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY_NAME}/${_SERVICE_NAME}:${_PR_NUMBER}-${SHORT_SHA}
+      - .
+
+  - id: "Push image"
+    name: "gcr.io/cloud-builders/docker"
+    args:
+      - push
+      - ${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY_NAME}/${_SERVICE_NAME}:${_PR_NUMBER}-${SHORT_SHA}
 
   - id: "Deploy revision with tag"
     name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
